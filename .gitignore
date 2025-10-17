@@ -1,0 +1,148 @@
+# ==================================
+# VoidCat.org Repository GitIgnore
+# ==================================
+
+# ============ IDE & Editor ============
+# VS Code
+.vscode/
+.vs/
+*.code-workspace
+
+# Cursor AI
+.cursor/rules/codacy.mdc
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============ Operating System ============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============ Dependencies & Packages ============
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============ Build & Distribution ============
+dist/
+build/
+out/
+*.min.js
+*.min.css
+
+# ============ Environment & Secrets ============
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env*.local
+*.pem
+*.key
+*.cert
+
+# Secrets and config files
+secrets/
+config/local.json
+config/secrets.json
+
+# ============ Logs & Debugging ============
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+debug.log
+
+# ============ Testing & Coverage ============
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# ============ Temporary Files ============
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+tmp/
+temp/
+
+# ============ Documentation Build ============
+.docusaurus/
+.cache-loader/
+
+# ============ AI & Code Quality ============
+# Cursor AI rules (keep specific)
+.cursor/rules/codacy.mdc
+
+# GitHub Copilot instructions
+.github/instructions/codacy.instructions.md
+
+# Repomix output (large generated file)
+repomix-output.xml
+
+# ============ Version Control ============
+.git/
+*.orig
+
+# ============ Deployment ============
+.vercel/
+.netlify/
+.firebase/
+
+# ============ Database & Data ============
+*.db
+*.sqlite
+*.sqlite3
+data/
+backups/
+
+# ============ Archives & Compressed ============
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ============ Project Specific ============
+# Keep documentation but ignore internal notes
+notes/
+internal/
+draft/
+scratch/
+
+# Keep published reports but ignore working versions
+*-DRAFT.md
+*-WIP.md
+*.backup.*

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Disallow development and configuration files
+Disallow: /.codacy/
+Disallow: /.cursor/
+Disallow: /.github/
+Disallow: /.specstory/
+Disallow: /.zencoder/
+Disallow: /repomix-output.xml
+Disallow: /VoidCat-RDC-Investor-Presentation.md
+Disallow: /*.code-workspace
+
+# Point to sitemap
+Sitemap: https://voidcatrdc.com/sitemap.xml

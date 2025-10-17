@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research & Principles — VoidCat RDC</title>
+<meta name="description" content="Context OS thesis, MCP governance, FLAGS, and 5‑Gate development." />
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="stylesheet" href="/styles.css" />
+</head><body>
+<header class="site-header"><div class="container"><a class="brand" href="/"><img src="/assets/logo.png" alt="" width="40" height="40" /><span>VoidCat RDC</span></a>
+<nav class="nav" aria-label="Primary">
+      <a href="/products/">Products</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/research/" aria-current="page">Research</a>
+      <a href="/roadmap/">Roadmap</a>
+      <a href="/company/">Company</a>
+      <a href="/investors/">Investors</a>
+      <a href="/projects/">Projects</a>
+      <a href="/contact/">Contact</a>
+    </nav></div></header>
+<main>
+<section class="section"><div class="container">
+<h1>Research &amp; Operating Principles</h1>
+<p><strong>Core Thesis:</strong> Agent capability scales with intelligent context and tool governance—not raw model size. We build a <em>Context OS</em> that routes intent to the minimal, correct toolset with provable safety and reliability.</p>
+
+<h2>Context OS: The Research Foundation</h2>
+<p>Most AI platforms assume bigger models = better results. We posit the opposite: intelligent context management is the differentiator.</p>
+<div class="grid">
+<article class="card">
+<h3>Tool-RAG Hybrids</h3>
+<p>Route user intent through two paths: (1) RAG for retrieval-first tasks, (2) Tool-calling for external integrations. Choose optimal path per query.</p>
+</article>
+<article class="card">
+<h3>Just-In-Time Tool Loading</h3>
+<p>Load tools only when needed, not all at once. Reduces context pollution. Allows 100+ tool definitions without degrading performance.</p>
+</article>
+<article class="card">
+<h3>Context Offloading &amp; Summarization</h3>
+<p>For long-running tasks, offload context to storage. Summarize intelligently. Enables multi-hour agents without token explosion.</p>
+</article>
+<article class="card">
+<h3>Tool Definition Compression</h3>
+<p>Compress verbose OpenAPI specs into minimal descriptions. Preserve semantics. Reduce tokens by 70% while maintaining accuracy.</p>
+</article>
+</div>
+
+<h2>Research Focus Areas</h2>
+<ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; list-style: none; padding: 0;">
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Intelligent Tool Management (MCP):</strong> Tool-RAG/Router/Hybrid patterns, just-in-time loading, context offloading, definition compression, tool discovery optimization.
+</li>
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Agentic Planning &amp; Orchestration:</strong> Planning loops with backtracking, multi-agent coordination (DSN), failure recovery strategies, task decomposition, goal verification.
+</li>
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Autonomous Code Execution:</strong> Sandboxed runtime environments, type-safe code generation, execution harnesses, evaluation metrics, safety verification.
+</li>
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Agent Safety &amp; Verification:</strong> Detecting hallucinations, verifying tool selection accuracy, tracing reasoning chains, detecting adversarial inputs.
+</li>
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Edge-Native Reasoning:</strong> Serverless reasoning on Cloudflare Workers at 330+ edge locations, latency optimization, cost models, deployment patterns.
+</li>
+<li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<strong>Privacy-First AI:</strong> Local inference with model quantization, encrypted storage, data sovereignty, compliance-ready architecture (HIPAA, GDPR, PCI).
+</li>
+</ul>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>FLAGS: Eight Dimensions of Quality</h2>
+<p>Every technical decision at VoidCat is evaluated across eight quality dimensions. FLAGS ensures we balance innovation speed with production reliability:</p>
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 16px 0;">
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--brand);">F — Functional Correctness</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Does the code solve the stated problem?</li>
+<li>Are edge cases and error conditions handled?</li>
+<li>Do test cases cover nominal and exceptional paths?</li>
+<li>Target: ≥90% test coverage, zero critical bugs in production</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--brand);">L — Latency &amp; Performance</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>What are P50, P95, P99 latencies?</li>
+<li>Does it scale to 10x traffic? 100x?</li>
+<li>Where are performance bottlenecks?</li>
+<li>Target: P99 &lt;500ms; linear scaling to 10K RPS</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--accent);">A — Accessibility</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Can users understand how to use this?</li>
+<li>Is documentation clear and complete?</li>
+<li>Are error messages helpful and actionable?</li>
+<li>Target: Users can complete task without support</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--accent);">G — Graceful Degradation</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>What happens when external services fail?</li>
+<li>Does the system degrade gracefully?</li>
+<li>Are fallbacks documented and tested?</li>
+<li>Target: MTBF &gt;30 days; mean recovery &lt;5 min</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--brand);">F (alt) — Extensibility &amp; Flexibility</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Can future developers modify/extend this?</li>
+<li>Is the architecture modular?</li>
+<li>Are extension points clear?</li>
+<li>Target: New features added with &lt;20% code change</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--accent);">S — Security</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>What attack vectors exist?</li>
+<li>Is data encrypted at rest and in transit?</li>
+<li>Are permissions enforced correctly?</li>
+<li>Target: Zero critical CVEs; security audit passing</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--brand);">O — Observability</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Can we debug this in production?</li>
+<li>Are logs useful and structured?</li>
+<li>Can we trace request flows?</li>
+<li>Target: Issue diagnosed within 5 min of alert</li>
+</ul>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-radius: 8px;">
+<h3 style="margin-top: 0; color: var(--accent);">S (alt) — Sustainability</h3>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Is this maintainable long-term?</li>
+<li>Is technical debt manageable?</li>
+<li>Can we iterate and improve?</li>
+<li>Target: Velocity maintained &gt;3 months</li>
+</ul>
+</article>
+</div>
+
+<p style="margin-top: 16px;"><strong>Grading:</strong> Each dimension scored 0-10. Target across FLAGS: ≥8/10 average. Code failing &lt;6/10 on any dimension blocks release. PR reviews explicitly evaluate code against FLAGS dimensions.</p>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>5-Gate Development System</h2>
+<p>Features must pass five quality gates before reaching production. Each gate is a checkpoint where work can be approved, rejected, or sent back for revision.</p>
+
+<div style="display: grid; gap: 16px; margin: 16px 0;">
+<article style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand);">
+<h3 style="margin-top: 0;">Gate 0: Concept Review</h3>
+<p><strong>Question:</strong> Is this worth building?</p>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Problem statement documented (20+ words)</li>
+<li>Success criteria defined (measurable)</li>
+<li>Estimated effort &lt;40 hours?</li>
+<li>Business case approved by founder</li>
+<li>Technical feasibility assessed (no unknown unknowns)</li>
+</ul>
+<p><strong>Approval:</strong> Founder signs off. No development begins without Gate 0 approval.</p>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-left: 4px solid var(--accent);">
+<h3 style="margin-top: 0;">Gate 1: Development &amp; Code Review</h3>
+<p><strong>Question:</strong> Is the code production-ready?</p>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Tests written first (TDD); ≥90% coverage</li>
+<li>All FLAGS dimensions ≥6/10 (average ≥8/10)</li>
+<li>Type safety: no `any` types in TypeScript</li>
+<li>Security scanning: zero critical issues</li>
+<li>Linting &amp; formatting: 100% passing</li>
+<li>Peer code review: 2+ approvals required</li>
+</ul>
+<p><strong>Approval:</strong> Code review checklist passed. CI/CD gates green.</p>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand);">
+<h3 style="margin-top: 0;">Gate 2: Integration Testing</h3>
+<p><strong>Question:</strong> Does it work with dependent systems?</p>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>E2E tests passing (happy path + 3+ error paths)</li>
+<li>Performance benchmarks: P99 &lt; baseline + 10%</li>
+<li>No memory leaks (heap profiling)</li>
+<li>No security regressions (dependency scanning)</li>
+<li>Conflicts resolved with dependent services</li>
+</ul>
+<p><strong>Approval:</strong> Integration test report signed by QA lead.</p>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-left: 4px solid var(--accent);">
+<h3 style="margin-top: 0;">Gate 3: Staging &amp; UAT</h3>
+<p><strong>Question:</strong> Is it ready for real users?</p>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Deployed to production-like environment</li>
+<li>User acceptance testing: internal team validates</li>
+<li>Load testing: 2x expected peak sustained</li>
+<li>Documentation complete (README, API docs, examples)</li>
+<li>Runbook written (deployment, rollback, monitoring)</li>
+<li>On-call rotation trained on failure scenarios</li>
+</ul>
+<p><strong>Approval:</strong> Product lead certifies readiness. On-call acknowledges runbook.</p>
+</article>
+
+<article style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand);">
+<h3 style="margin-top: 0;">Gate 4: Production &amp; Graduation</h3>
+<p><strong>Question:</strong> Is it stable in production?</p>
+<ul style="margin: 12px 0; font-size: 14px;">
+<li>Deployed to 5% of traffic (canary)</li>
+<li>Monitoring dashboards active; alerts configured</li>
+<li>Zero critical incidents in 24 hours</li>
+<li>Error rate &lt;0.1%; latency within SLA</li>
+<li>Rollout to 100% after 2-week stability period</li>
+<li>Incident post-mortem (if any) completed</li>
+</ul>
+<p><strong>Graduation:</strong> Feature marked stable. On-call handoff complete. Metrics baseline for future regression detection.</p>
+</article>
+</div>
+
+<p style="margin-top: 16px;"><strong>Enforcement:</strong> Each gate is a hard stop. Work cannot proceed to next gate without explicit approval. Exceptions require founder waiver (documented).</p>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>Security &amp; Privacy Baselines</h2>
+<p>Security is built into architecture, not bolted on. These baselines apply to all systems:</p>
+
+<ul style="display: grid; gap: 12px;">
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+<strong>Defense in Depth:</strong> Multiple security layers. No single point of failure. If one layer compromised, others contain the breach.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+<strong>Zero Trust Model:</strong> Never trust by default. All inputs validated. All access authenticated. All communications encrypted (TLS 1.3+).
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+<strong>Data Minimization:</strong> Collect only what's needed. Retain only as long as required. Delete upon retention policy expiry.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+<strong>PII Detection &amp; Handling:</strong> Detect personally identifiable information (SSN, credit cards, healthcare data). Redact in logs. Encrypt in storage.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+<strong>Sandboxed Tool Execution:</strong> External tools (code, APIs) execute in isolated containers. No filesystem/network access unless explicitly granted.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+<strong>Audit Logging:</strong> Every action logged: who, what, when, why. Tamper-evident (cryptographic hashing). Retained for 90 days minimum.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+<strong>Vulnerability Management:</strong> Automated dependency scanning. Zero-day patching SLA &lt;24 hours. Annual penetration testing.
+</li>
+<li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+<strong>Incident Response:</strong> Documented runbooks. On-call rotation. Blameless post-mortems. Metrics: MTTR &lt;30 min, incident rate &lt;0.1%/month.
+</li>
+</ul>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>Publishing &amp; Contribution</h2>
+<p>VoidCat's research foundations are shared with the community:</p>
+
+<ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; list-style: none; padding: 0;">
+<li style="background: var(--panel); padding: 12px; border-radius: 4px;">
+<strong>MCP Protocol Governance:</strong> Active contributor to emerging MCP standards. Reference implementations published.
+</li>
+<li style="background: var(--panel); padding: 12px; border-radius: 4px;">
+<strong>Benchmark Suites:</strong> Tool selection accuracy, reasoning quality, cost efficiency metrics. Shared evaluation harnesses.
+</li>
+<li style="background: var(--panel); padding: 12px; border-radius: 4px;">
+<strong>Security Research:</strong> Responsible disclosure of vulnerabilities. Best-practice guides for agent security.
+</li>
+<li style="background: var(--panel); padding: 12px; border-radius: 4px;">
+<strong>Blog &amp; Talks:</strong> Regular technical posts on Context OS, edge computing, agent safety. Conference speaking.
+</li>
+</ul>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body></html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forbidden Library — VoidCat RDC</title>
+  <meta name="description" content="Privacy‑first desktop LLM application with secure local storage and on‑device inference." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" width="40" height="40" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/" aria-current="page">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero"><div class="container">
+      <h1>Forbidden Library</h1>
+      <p>Privacy-first desktop AI application with local inference, secure storage, and zero data transmission. Control your AI experience.</p>
+      <a class="cta" href="/contact/">Request Early Access</a>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>The Problem</h2>
+      <p>Cloud AI services capture sensitive data: trade secrets, personal information, confidential research. Enterprises in regulated industries (healthcare, finance, legal, government) cannot rely on external AI due to compliance requirements. Open-source models on personal hardware are powerful but fragmented—no unified workspace, poor performance, lack of professional tooling.</p>
+      <p><strong>Market context:</strong> Privacy-sensitive teams and SMBs are a key ICP. Enterprise adoption of local AI growing from 5% (2024) to 25%+ (2026). Data sovereignty and regulatory compliance driving on-device inference adoption.</p>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>The Solution</h2>
+      <p>Forbidden Library combines powerful local inference with professional workspace management. Run state-of-the-art open models (Llama 2/3, Mistral, etc.) on your desktop or datacenter. Complete control. Zero data leakage. Enterprise-grade reliability.</p>
+      <div class="grid">
+        <article class="card"><h3>Local Inference</h3>
+          <ul style="margin: 12px 0;">
+            <li>Native Ollama integration</li>
+            <li>Support for Llama, Mistral, Phi, more</li>
+            <li>GPU acceleration (NVIDIA, Metal)</li>
+            <li>Fallback to CPU with performance tuning</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Secure Workspace</h3>
+          <ul style="margin: 12px 0;">
+            <li>Encrypted local storage</li>
+            <li>Multi-user profiles with isolation</li>
+            <li>Session management &amp; audit logs</li>
+            <li>Zero data transmission to cloud</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Professional Tools</h3>
+          <ul style="margin: 12px 0;">
+            <li>MCP tool integration</li>
+            <li>Document management &amp; search</li>
+            <li>Custom workflows &amp; automation</li>
+            <li>Export to multiple formats</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section"><div class="container">
+      <h2>Core Features</h2>
+      <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; list-style: none; padding: 0;">
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Model Selection</strong><br/>One-click install of 50+ open models; automatic downloading, caching, optimization.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Performance Tuning</strong><br/>GPU acceleration, batching, quantization; automatic fallback for hardware constraints.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Workspace Management</strong><br/>Projects, conversations, tags, search; organize and retrieve work across sessions.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Security &amp; Privacy</strong><br/>Encrypted storage, local-only execution, audit trails, compliance-ready.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Tool Integration</strong><br/>MCP protocol support; connect to code editors, APIs, databases, external services.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Cross-Platform</strong><br/>Mac, Windows, Linux; native performance; unified experience across desktop OS.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Technical Architecture</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+        <thead>
+          <tr style="background: var(--panel); border-bottom: 2px solid #1b2230;">
+            <th style="padding: 12px; text-align: left; border-right: 1px solid #1b2230;">Component</th>
+            <th style="padding: 12px; text-align: left;">Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Desktop Runtime</strong></td>
+            <td style="padding: 12px;">Tauri (Rust backend + webview frontend)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Frontend</strong></td>
+            <td style="padding: 12px;">SvelteKit with TypeScript; responsive UI</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Model Runtime</strong></td>
+            <td style="padding: 12px;">Ollama + llama.cpp; GPU support (CUDA, Metal, Vulkan)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Storage</strong></td>
+            <td style="padding: 12px;">SQLite (local), encrypted filesystem, content-addressable storage</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Sync (Optional)</strong></td>
+            <td style="padding: 12px;">End-to-end encrypted sync via CRDTs; self-hosted or managed option</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Compliance</strong></td>
+            <td style="padding: 12px;">Audit logging, no telemetry, local-only processing, SOC2-ready</td>
+          </tr>
+        </tbody>
+      </table>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Use Cases &amp; Customer Profiles</h2>
+      <div class="grid">
+        <article class="card"><h3>Regulated Industries</h3>
+          <p>Healthcare, finance, legal professionals needing HIPAA/PCI/SOX compliance. Local inference = no data transmission.</p>
+        </article>
+        <article class="card"><h3>Researchers &amp; Scientists</h3>
+          <p>Run models on proprietary datasets without uploading to cloud. Full reproducibility, version control.</p>
+        </article>
+        <article class="card"><h3>Individual Privacy Champions</h3>
+          <p>Founders, consultants, creatives protecting intellectual property. No vendor lock-in, full control.</p>
+        </article>
+        <article class="card"><h3>Enterprise Security Teams</h3>
+          <p>Internal deployments on secure networks. Airgapped systems, compliance auditing, centralized management.</p>
+        </article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Supported Models</h2>
+      <div class="grid">
+        <article class="card"><h3>Open Foundation</h3>
+          <ul style="margin: 12px 0; font-size: 14px;">
+            <li>Llama 2/3 (7B, 13B, 70B variants)</li>
+            <li>Mistral 7B</li>
+            <li>Phi-2/3</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Specialized</h3>
+          <ul style="margin: 12px 0; font-size: 14px;">
+            <li>Code models (StarCoder, CodeLlama)</li>
+            <li>Math models (MetaMath, Llemma)</li>
+            <li>Domain-specific fine-tunes</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Performance Tiers</h3>
+          <ul style="margin: 12px 0; font-size: 14px;">
+            <li>Fast: 7B models (4GB+ RAM)</li>
+            <li>Balanced: 13B models (8GB+ RAM)</li>
+            <li>Powerful: 70B+ (24GB+ VRAM)</li>
+          </ul>
+        </article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Pricing &amp; Distribution</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Free Tier:</strong> Personal use, open source, community support. Model library included.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Pro ($49/year):</strong> Priority support, premium models, cloud sync, professional themes.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Team/Enterprise (Custom):</strong> Site licensing, compliance packages, white-label, managed deployment.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Key Differentiators</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Privacy by Design:</strong> Zero data transmission; local storage encrypted; audit-ready architecture.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Enterprise Ready:</strong> Professional workspace management, team collaboration, compliance support.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Performance Optimized:</strong> GPU acceleration automatic; quantization available; benchmark-leading latency.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Tool Ecosystem:</strong> MCP integration enables connection to IDEs, APIs, databases, external services.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Cross-Platform Native:</strong> Mac, Windows, Linux with native performance; not web-wrapped.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Model Flexibility:</strong> Swap models instantly; no vendor lock-in; use open source or custom models.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Development Status &amp; Roadmap</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Q1 2026:</strong> Private beta with 500 founders; Mac/Windows native apps; model marketplace beta.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Q2 2026:</strong> Public beta; Linux support; team collaboration features; cloud sync (optional).
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Q3 2026:</strong> Enterprise tier launch; compliance certifications (SOC2, HIPAA); white-label option.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Q4 2026:</strong> v1.0 production; ecosystem partnerships; mobile companion app.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Get Started</h2>
+      <p style="margin-bottom: 16px;">Forbidden Library is in private beta. Early access available for founders, researchers, and privacy-focused organizations.</p>
+      <a class="cta" href="/contact/">Request Early Access</a>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

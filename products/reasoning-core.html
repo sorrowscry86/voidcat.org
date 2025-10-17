@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VoidCat Reasoning Core — VoidCat RDC</title>
+  <meta name="description" content="Modular Python reasoning engine with RAG, planning, memory, and MCP server." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" width="40" height="40" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/" aria-current="page">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero"><div class="container">
+      <h1>Reasoning Core</h1>
+      <p>Enterprise-grade Python reasoning engine with RAG, sequential thinking, planning, memory, and MCP compliance. Deployed in production at scale.</p>
+      <a class="cta" href="/contact/">Request Access</a>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>The Problem</h2>
+      <p>Building production AI requires more than LLM calls. Enterprises need retrieval (RAG), reasoning chains (sequential thinking), planning, persistent memory, and model independence. Most frameworks are prototypes; none combine all pieces with production-grade reliability, security, and observability.</p>
+      <p><strong>Market context:</strong> $89.4B in AI VC funding (2025). Autonomous agents ($700M seed funding) demand robust reasoning infrastructure. Enterprise adoption of AI systems growing from 25% to 50% (2025-2026).</p>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>The Solution</h2>
+      <p>VoidCat Reasoning Core is a production-ready Python framework for building agentic AI systems. It provides:</p>
+      <div class="grid">
+        <article class="card"><h3>RAG Engine</h3>
+          <ul style="margin: 12px 0;">
+            <li>Semantic chunking &amp; embedding</li>
+            <li>Multi-provider vector DB support</li>
+            <li>Hybrid BM25 + dense search</li>
+            <li>Retrieval evaluation &amp; optimization</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Sequential Thinking</h3>
+          <ul style="margin: 12px 0;">
+            <li>Step-by-step reasoning chains</li>
+            <li>Token cost optimization</li>
+            <li>Parallel reasoning paths</li>
+            <li>Convergence &amp; validation</li>
+          </ul>
+        </article>
+        <article class="card"><h3>Planning Engine</h3>
+          <ul style="margin: 12px 0;">
+            <li>Task decomposition</li>
+            <li>Multi-step execution flows</li>
+            <li>Backtracking &amp; re-planning</li>
+            <li>Goal state verification</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section"><div class="container">
+      <h2>Core Capabilities</h2>
+      <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; list-style: none; padding: 0;">
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Multi-Model Support</strong><br/>OpenAI, Claude, Gemini, Llama, local inference; swap models without code changes.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Memory Management</strong><br/>Short-term (context), long-term (Redis/Pinecone), episodic (conversation history), semantic compression.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Tool Integration</strong><br/>Unified MCP protocol; connect any external service (APIs, databases, code execution).
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Observability</strong><br/>Full logging, token tracking, cost analytics, latency monitoring, error tracing.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Security First</strong><br/>Input validation, token sanitization, PII detection, access control, audit trails, encrypted memory.
+        </li>
+        <li style="background: var(--panel); padding: 16px; border-radius: 8px;">
+          <strong>Evaluation Framework</strong><br/>Built-in metrics for reasoning quality, relevance, cost, safety compliance.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Technical Architecture</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+        <thead>
+          <tr style="background: var(--panel); border-bottom: 2px solid #1b2230;">
+            <th style="padding: 12px; text-align: left; border-right: 1px solid #1b2230;">Component</th>
+            <th style="padding: 12px; text-align: left;">Technology</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Language</strong></td>
+            <td style="padding: 12px;">Python 3.10+; async/await for concurrency</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Framework</strong></td>
+            <td style="padding: 12px;">Custom lightweight core; compatible with FastAPI, async HTTP</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Memory</strong></td>
+            <td style="padding: 12px;">Redis (short-term), Pinecone/Weaviate (vectors), PostgreSQL (long-term)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Compute</strong></td>
+            <td style="padding: 12px;">Docker containers; scales on Kubernetes, Lambda, EC2</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #1b2230;">
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Observability</strong></td>
+            <td style="padding: 12px;">Prometheus metrics, ELK stack logging, Datadog integration</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Compliance</strong></td>
+            <td style="padding: 12px;">SOC2-ready, PII detection, data retention policies, audit logging</td>
+          </tr>
+        </tbody>
+      </table>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Use Cases &amp; Customer Profiles</h2>
+      <div class="grid">
+        <article class="card"><h3>Enterprise AI Teams</h3>
+          <p>Built production AI at scale with reasoning, planning, memory. SOC2 compliance, security audit trails, cost tracking.</p>
+        </article>
+        <article class="card"><h3>Platform Companies</h3>
+          <p>White-label reasoning engine for your product. Multi-tenant support, custom model endpoints, usage-based billing.</p>
+        </article>
+        <article class="card"><h3>Autonomous Agent Builders</h3>
+          <p>Full reasoning + planning + memory stack. Tool integration with MCP protocol. Production-hardened concurrency.</p>
+        </article>
+        <article class="card"><h3>Research Teams</h3>
+          <p>Evaluation framework for reasoning quality. Benchmark against baselines. Iterate on prompts with built-in metrics.</p>
+        </article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Pricing &amp; Licensing</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Open Source (Free):</strong> Core framework under MIT license; community contributions welcome.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Enterprise License:</strong> Support SLA, security audit, compliance certification, white-label option.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Managed Cloud:</strong> Hosted reasoning endpoint; pay-per-million-tokens; auto-scaling, monitoring included.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>What's Included</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Framework</h3>
+          <p>Core reasoning engine, RAG pipeline, sequential thinking, planning, memory management, tool integration.</p>
+        </article>
+        <article class="card">
+          <h3>Integrations</h3>
+          <p>Pre-built connectors: OpenAI, Claude, Gemini, Llama, Redis, Pinecone, PostgreSQL, FastAPI, Kubernetes.</p>
+        </article>
+        <article class="card">
+          <h3>Observability</h3>
+          <p>Logging, metrics, cost tracking, latency monitoring, error tracing, evaluation framework.</p>
+        </article>
+        <article class="card">
+          <h3>Security</h3>
+          <p>Input validation, token sanitization, PII detection, access control, audit trails, encrypted memory.</p>
+        </article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Competitive Advantages</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Production-Grade:</strong> Built for scale; supports 1000s of concurrent agents; cost optimized for token efficiency.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Model Agnostic:</strong> Swap models without code changes; reduce vendor lock-in; optimize for cost/performance.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Complete Stack:</strong> RAG + reasoning + planning + memory in one framework; reduces integration burden.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Security Leadership:</strong> SOC2-ready, PII detection, encryption, audit trails; trusted by enterprises.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>Observability First:</strong> Full visibility into reasoning chains, token usage, costs, errors; optimize with data.
+        </li>
+        <li style="background: var(--panel); padding: 12px;">
+          <strong>MCP Native:</strong> Tool integration via Model Context Protocol; ecosystem compatibility; future-proof architecture.
+        </li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Development Status</h2>
+      <ul style="display: grid; gap: 12px;">
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Q1 2026:</strong> v1.0 core framework release; open source launch; first enterprise pilots.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Q2 2026:</strong> Managed cloud endpoint; support tiers; enterprise SLA.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
+          <strong>Q3 2026:</strong> Advanced reasoning (multi-agent coordination, tree search); benchmark suite; research collaborations.
+        </li>
+        <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
+          <strong>Q4 2026:</strong> Industry certifications; enterprise GTM push; white-label platform launch.
+        </li>
+      </ul>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

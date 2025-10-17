@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products — VoidCat RDC</title>
+  <meta name="description" content="VoidCat RDC product portfolio." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="preload" href="/assets/logo.png" as="image" type="image/png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" width="40" height="40" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/" aria-current="page">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Complete AI Product Stack</h1>
+        <p>Production-ready systems spanning reasoning, tools, UX, and delivery. From core engines to revenue-generating applications.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Flagship Products</h2>
+        <div class="grid">
+          <article class="card">
+            <h3><a href="/products/grant-automation.html">Grant Automation Platform</a></h3>
+            <p><strong>Market-validated revenue engine.</strong> AI discovery + proposal generation for founders seeking SBIR/STTR funding.</p>
+            <ul style="font-size: 14px; margin: 12px 0 0;">
+              <li><strong>Problem:</strong> Startups waste weeks on grant discovery; high cost, low hit rate</li>
+              <li><strong>Solution:</strong> Automated discovery + AI drafting with compliance templates</li>
+              <li><strong>Revenue:</strong> Stripe subscription; $29-$299/mo pricing tiers</li>
+              <li><strong>Status:</strong> MVP complete; subscription-ready</li>
+              <li><strong>Market:</strong> $89.4B AI funding in 2025; Skip, Granter.ai (3,000+ customers) validate demand</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><a href="/products/reasoning-core.html">VoidCat Reasoning Core (VRE)</a></h3>
+            <p><strong>Production reasoning engine.</strong> Modular Python core with RAG, planning, memory, and MCP compliance.</p>
+            <ul style="font-size: 14px; margin: 12px 0 0;">
+              <li><strong>Problem:</strong> Agentic frameworks exist (LangGraph, AutoGen) but lack production hardening</li>
+              <li><strong>Solution:</strong> Reliable reasoning with Context7 RAG, sequential thinking, Redis memory, Docker deployment</li>
+              <li><strong>Features:</strong> Task planning, tool orchestration, memory management, diagnostics</li>
+              <li><strong>Status:</strong> v0.x; building to v1.0 API stability</li>
+              <li><strong>Licensing:</strong> Open core + commercial support ($499+/mo)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><a href="/products/forbidden-library.html">Forbidden Library (Desktop)</a></h3>
+            <p><strong>Privacy-first desktop AI.</strong> Rust/Tauri/SvelteKit with local inference, secure storage, no data exfiltration.</p>
+            <ul style="font-size: 14px; margin: 12px 0 0;">
+              <li><strong>Problem:</strong> Enterprise teams need privacy-first LLM access with local data control</li>
+              <li><strong>Solution:</strong> Desktop app with on-device inference, encrypted storage, MCP tools</li>
+              <li><strong>Features:</strong> Local/cloud model routing, workspace management, enterprise profiles, audit logs</li>
+              <li><strong>Status:</strong> Beta; signed installers + encryption at rest implemented</li>
+              <li><strong>Pricing:</strong> Free (local-only) → Pro ($19/mo) → Team ($15/user/mo) → Enterprise</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Technology Foundation</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>VoidCat Operating System (VCOS)</h3>
+            <p><strong>MCP-native agent runtime.</strong> Full 2025-06-18 compliance with OAuth 2.1, structured output, resource linking.</p>
+            <p style="font-size: 14px; color: var(--muted); margin-top: 8px;">Security-hardened runtime addressing June 2025 identified MCP vulnerabilities. Plugin suite (GitHub, Web, Filesystem). Cloudflare edge deployment.</p>
+          </article>
+          <article class="card">
+            <h3>Digital Sanctuary Network (DSN)</h3>
+            <p><strong>Multi-agent orchestration.</strong> Specialized agents (Omega, Beta, Gamma, Delta, Sigma) collaborate via standardized HTTP APIs.</p>
+            <p style="font-size: 14px; color: var(--muted); margin-top: 8px;">Health checks, role specialization, fault tolerance, message passing. Production-ready multi-agent coordination.</p>
+          </article>
+          <article class="card">
+            <h3>Business Management System (BMS)</h3>
+            <p><strong>AI-human ops dashboard.</strong> Runbooks, approvals, artifact store, role-based permissions, audit logs.</p>
+            <p style="font-size: 14px; color: var(--muted); margin-top: 8px;">Oversight and repeatability for agentic workflows. Enterprise compliance and auditability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Additional Products & Utilities</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div style="background: var(--panel); padding: 16px; border: 1px solid #1b2230; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Gemini Desktop</h4>
+            <p>Electron app integrating Google Gemini with MCP utilities for desktop users.</p>
+          </div>
+          <div style="background: var(--panel); padding: 16px; border: 1px solid #1b2230; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Project Raph</h4>
+            <p>Persona-driven assistant with controllable behavior and personality customization.</p>
+          </div>
+          <div style="background: var(--panel); padding: 16px; border: 1px solid #1b2230; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Akashic Scribe</h4>
+            <p>Go/Fyne desktop for video transcription, translation, and dubbing with Whisper + TTS.</p>
+          </div>
+          <div style="background: var(--panel); padding: 16px; border: 1px solid #1b2230; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Codeystack</h4>
+            <p>Developer automation and internal productivity toolkit for CI/CD and codegen pipelines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Why VoidCat Products Stand Out</h2>
+        <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; list-style: none; padding: 0;">
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+            <strong>MCP-Native from Day One</strong><br/>Built on Model Context Protocol before industry adoption. Now validated as standard by OpenAI (March 2025) and Google DeepMind (April 2025).
+          </li>
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <strong>Security Leadership</strong><br/>First to implement OAuth 2.1 and RFC 8807 compliance, addressing vulnerabilities identified in June 2025. Security-first, not afterthought.
+          </li>
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+            <strong>Complete Stack</strong><br/>Not frameworks or tools in isolation. End-to-end: reasoning → tools → UX → deployment → revenue model.
+          </li>
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <strong>Edge-Native Architecture</strong><br/>Cloudflare Workers deployment across 330+ cities. Zero cold starts, global reach, cost-efficient scaling.
+          </li>
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+            <strong>Production Hardened</strong><br/>FLAGS quality enforcement (≥8 target), 5-Gate development, ≥90% test coverage, security baselines, CI/CD with automated gates.
+          </li>
+          <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <strong>Defensible IP</strong><br/>Digital Sanctuary Network (DSN) proprietary multi-agent orchestration. Context OS thesis informs architectural decisions competitors must discover independently.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> VoidCat RDC, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Solutions: Developers — VoidCat RDC</title>
+<meta name="description" content="Agentic architectures with MCP, VCOS/VRE, and SDKs." />
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="stylesheet" href="/styles.css" />
+</head><body>
+<header class="site-header"><div class="container"><a class="brand" href="/"><img src="/assets/logo.png" alt="" width="40" height="40" /><span>VoidCat RDC</span></a>
+<nav class="nav" aria-label="Primary">
+      <a href="/products/">Products</a>
+      <a href="/solutions/" aria-current="page">Solutions</a>
+      <a href="/research/">Research</a>
+      <a href="/roadmap/">Roadmap</a>
+      <a href="/company/">Company</a>
+      <a href="/investors/">Investors</a>
+      <a href="/projects/">Projects</a>
+      <a href="/contact/">Contact</a>
+    </nav></div></header>
+<main>
+<section class="hero"><div class="container">
+<h1>For Developers &amp; AI Engineers</h1>
+<p>Production AI frameworks, MCP toolchains, reasoning engines, and multi-agent patterns. Build and deploy at scale.</p>
+<a class="cta" href="/products/reasoning-core.html">Explore Reasoning Core</a>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>The Challenge</h2>
+<p>Building production AI applications requires more than API calls:</p>
+<ul style="margin: 16px 0;">
+<li><strong>Fragmentation:</strong> Reasoning, retrieval, planning, memory are separate libraries. Integration burden is enormous.</li>
+<li><strong>Production gaps:</strong> Most frameworks are prototypes. Missing observability, cost tracking, error handling at scale.</li>
+<li><strong>Model dependency:</strong> Lock-in to single provider. Switching models or vendors requires rewriting.</li>
+<li><strong>Tool integration:</strong> Connecting external services (APIs, databases, code execution) is ad-hoc and fragile.</li>
+<li><strong>Evaluation burden:</strong> No standard metrics for reasoning quality, cost efficiency, task success rate.</li>
+</ul>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>The VoidCat Solution</h2>
+<p>VoidCat Reasoning Core provides complete, production-ready infrastructure for building agentic AI systems. Focus on application logic; framework handles the rest.</p>
+<div class="grid">
+<article class="card">
+<h3>Framework</h3>
+<ul style="margin: 12px 0;">
+<li>RAG pipeline (semantic chunking, retrieval, evaluation)</li>
+<li>Sequential reasoning (step-by-step chains, token optimization)</li>
+<li>Planning engine (task decomposition, multi-step execution)</li>
+<li>Memory management (short/long term, semantic compression)</li>
+</ul>
+</article>
+<article class="card">
+<h3>Integration</h3>
+<ul style="margin: 12px 0;">
+<li>Multi-model support (OpenAI, Claude, Llama, custom)</li>
+<li>MCP protocol for tool integration</li>
+<li>Pre-built connectors (Redis, Pinecone, PostgreSQL)</li>
+<li>FastAPI-native async/await patterns</li>
+</ul>
+</article>
+<article class="card">
+<h3>Operations</h3>
+<ul style="margin: 12px 0;">
+<li>Full observability (logging, metrics, traces)</li>
+<li>Cost tracking (per-token accounting)</li>
+<li>Error handling &amp; fallback strategies</li>
+<li>Evaluation framework with built-in metrics</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="section"><div class="container">
+<h2>Architecture Patterns</h2>
+<div class="grid">
+<article class="card">
+<h3>Tool-RAG</h3>
+<p>Combine retrieval with tool calls. Agent retrieves documents, calls APIs, synthesizes responses. Best for knowledge-work + external data.</p>
+</article>
+<article class="card">
+<h3>Router</h3>
+<p>Classify user intent, route to appropriate agent. Enables specialization: different agents for search, analysis, coding.</p>
+</article>
+<article class="card">
+<h3>Hierarchical</h3>
+<p>Multi-level agents. Parent coordinates, children execute specialized tasks. Scale complex problems.</p>
+</article>
+<article class="card">
+<h3>Hybrid Cloud/Local</h3>
+<p>Local reasoning engine for fast inference. Cloud fallback for complex tasks. Optimize latency + cost.</p>
+</article>
+<article class="card">
+<h3>Agentic Loops</h3>
+<p>Agent plans, executes, reflects, adapts. Build self-improving systems with evaluation feedback.</p>
+</article>
+<article class="card">
+<h3>Multi-Model Ensemble</h3>
+<p>Chain different models. Fast model for routing, powerful model for synthesis. Cost + quality optimization.</p>
+</article>
+</div>
+</section>
+
+<section class="section"><div class="container">
+<h2>Developer Experience</h2>
+<div class="grid">
+<article class="card">
+<h3>SDK &amp; CLI</h3>
+<p>Python SDK for framework. CLI for local development, testing, deployment.</p>
+</article>
+<article class="card">
+<h3>Documentation &amp; Examples</h3>
+<p>Comprehensive docs, 10+ example applications, best practices guide, production checklists.</p>
+</article>
+<article class="card">
+<h3>Local Dev Environment</h3>
+<p>Docker compose setup. Redis, Postgres, Ollama pre-configured. Zero-config onboarding.</p>
+</article>
+<article class="card">
+<h3>Testing &amp; Evaluation</h3>
+<p>Built-in test harness. Compare reasoning quality across models, prompts, configurations with metrics.</p>
+</article>
+<article class="card">
+<h3>Deployment Templates</h3>
+<p>Kubernetes, Lambda, EC2, Docker manifests. One-command deployments with observability.</p>
+</article>
+<article class="card">
+<h3>Community</h3>
+<p>GitHub discussions, Discord community, monthly webinars, blog tutorials.</p>
+</article>
+</div>
+</section>
+
+<section class="section"><div class="container">
+<h2>Use Cases</h2>
+<div class="grid">
+<article class="card">
+<h3>Research Teams</h3>
+<p>Benchmark reasoning chains. Evaluate prompt variations with built-in metrics. Publish reproducible results.</p>
+</article>
+<article class="card">
+<h3>Startup Teams</h3>
+<p>Fast MVP development. Pre-built components reduce time to market. Focus on product differentiation.</p>
+</article>
+<article class="card">
+<h3>Enterprise Platform Teams</h3>
+<p>White-label reasoning engines. Multi-tenant support. Custom model endpoints. Usage-based billing.</p>
+</article>
+<article class="card">
+<h3>Autonomous Agent Builders</h3>
+<p>Full stack in one framework. RAG + reasoning + planning + memory. Production-hardened concurrency.</p>
+</article>
+<article class="card">
+<h3>LLM Application Builders</h3>
+<p>Complex workflows: search + analysis + writing. Multi-step chains with fallbacks. Cost optimized.</p>
+</article>
+<article class="card">
+<h3>ML/AI Engineers</h3>
+<p>Deploy custom models alongside cloud APIs. Compare performance/cost. Route traffic dynamically.</p>
+</article>
+</div>
+</section>
+
+<section class="section"><div class="container">
+<h2>Technical Specifications</h2>
+<table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+<thead>
+<tr style="background: var(--panel); border-bottom: 2px solid #1b2230;">
+<th style="padding: 12px; text-align: left; border-right: 1px solid #1b2230;">Capability</th>
+<th style="padding: 12px; text-align: left;">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Language</strong></td>
+<td style="padding: 12px;">Python 3.10+; async/await; type hints for IDE support</td>
+</tr>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Frameworks</strong></td>
+<td style="padding: 12px;">FastAPI, Starlette, asyncio; compatible with Django Async</td>
+</tr>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Scale</strong></td>
+<td style="padding: 12px;">1,000s concurrent agents; Kubernetes-native; auto-scaling ready</td>
+</tr>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Models Supported</strong></td>
+<td style="padding: 12px;">OpenAI (GPT-4, GPT-3.5), Anthropic (Claude), Google (Gemini), Meta (Llama), Mistral, custom endpoints</td>
+</tr>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Storage Backends</strong></td>
+<td style="padding: 12px;">Redis (sessions), Pinecone/Weaviate (vectors), PostgreSQL (structured), S3 (blobs)</td>
+</tr>
+<tr style="border-bottom: 1px solid #1b2230;">
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Observability</strong></td>
+<td style="padding: 12px;">Prometheus, OpenTelemetry, Datadog, ELK; structured logging; trace propagation</td>
+</tr>
+<tr>
+<td style="padding: 12px; border-right: 1px solid #1b2230;"><strong>Licensing</strong></td>
+<td style="padding: 12px;">Open source (MIT) + Enterprise with support SLA</td>
+</tr>
+</tbody>
+</table>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>Getting Started</h2>
+<ul style="display: grid; gap: 12px; margin: 16px 0;">
+<li style="background: var(--panel); padding: 12px;">
+<strong>Step 1:</strong> Install SDK: <code style="background: #1b2230; padding: 2px 6px; border-radius: 4px;">pip install voidcat-reasoning-core</code>
+</li>
+<li style="background: var(--panel); padding: 12px;">
+<strong>Step 2:</strong> Run example: <code style="background: #1b2230; padding: 2px 6px; border-radius: 4px;">python -m voidcat.examples.simple_rag</code>
+</li>
+<li style="background: var(--panel); padding: 12px;">
+<strong>Step 3:</strong> Read docs at <code style="background: #1b2230; padding: 2px 6px; border-radius: 4px;">docs.voidcat.org</code>
+</li>
+<li style="background: var(--panel); padding: 12px;">
+<strong>Step 4:</strong> Join community Discord for support
+</li>
+</ul>
+</div></section>
+
+<section class="section"><div class="container">
+<h2>Get Support</h2>
+<p style="margin-bottom: 16px;">Questions? Schedule a technical consultation with our team.</p>
+<a class="cta" href="/contact/">Contact Engineering</a>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body></html>

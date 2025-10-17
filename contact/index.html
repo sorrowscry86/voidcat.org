@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — VoidCat RDC</title>
+<meta name="description" content="Contact VoidCat RDC." />
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="stylesheet" href="/styles.css" />
+</head><body>
+<header class="site-header"><div class="container"><a class="brand" href="/"><img src="/assets/logo.png" alt="" width="40" height="40" /><span>VoidCat RDC</span></a>
+<nav class="nav" aria-label="Primary">
+      <a href="/products/">Products</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/research/">Research</a>
+      <a href="/roadmap/">Roadmap</a>
+      <a href="/company/">Company</a>
+      <a href="/investors/">Investors</a>
+      <a href="/projects/">Projects</a>
+      <a href="/contact/" aria-current="page">Contact</a>
+    </nav></div></header>
+<main>
+<section class="section"><div class="container">
+<h1>Contact</h1>
+<p>Email: <a href="mailto:sorrowscry86@voidcat.org">sorrowscry86@voidcat.org</a> • GitHub: <a href="https://github.com/sorrowscry86" rel="noopener">@sorrowscry86</a></p>
+<form action="https://formspree.io/f/your-id" method="POST" style="margin-top:16px">
+  <div style="display:grid;gap:8px;max-width:560px">
+    <input name="name" placeholder="Your name" required />
+    <input name="email" type="email" placeholder="Your email" required />
+    <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+    <input type="text" name="_gotcha" style="display:none" />
+    <button class="cta" type="submit">Send</button>
+  </div>
+</form>
+<p style="color:var(--muted);margin-top:8px">We’ll wire the form to your provider once ready.</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body></html>
