@@ -12,4 +12,4 @@ Disallow: /VoidCat-RDC-Investor-Presentation.md
 Disallow: /*.code-workspace
 
 # Point to sitemap
-Sitemap: https://voidcatrdc.com/sitemap.xml
+Sitemap: https://voidcat.org/sitemap.xml
