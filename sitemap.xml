@@ -2,93 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://voidcatrdc.com/</loc>
+    <loc>https://voidcat.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/products/</loc>
+    <loc>https://voidcat.org/products/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/solutions/</loc>
+    <loc>https://voidcat.org/solutions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/company/</loc>
+    <loc>https://voidcat.org/company/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/investors/</loc>
+    <loc>https://voidcat.org/investors/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/research/</loc>
+    <loc>https://voidcat.org/research/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/roadmap/</loc>
+    <loc>https://voidcat.org/roadmap/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/projects/</loc>
+    <loc>https://voidcat.org/projects/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/contact/</loc>
+    <loc>https://voidcat.org/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Product Pages -->
   <url>
-    <loc>https://voidcatrdc.com/products/grant-automation.html</loc>
+    <loc>https://voidcat.org/products/grant-automation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/products/reasoning-core.html</loc>
+    <loc>https://voidcat.org/products/reasoning-core.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/products/forbidden-library.html</loc>
+    <loc>https://voidcat.org/products/forbidden-library.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Solution Pages -->
   <url>
-    <loc>https://voidcatrdc.com/solutions/startups.html</loc>
+    <loc>https://voidcat.org/solutions/startups.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/solutions/enterprise.html</loc>
+    <loc>https://voidcat.org/solutions/enterprise.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/solutions/developers.html</loc>
+    <loc>https://voidcat.org/solutions/developers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://voidcatrdc.com/legal/terms.html</loc>
+    <loc>https://voidcat.org/legal/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://voidcatrdc.com/legal/privacy.html</loc>
+    <loc>https://voidcat.org/legal/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
