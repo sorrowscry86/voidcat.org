@@ -16,8 +16,9 @@ VoidCat RDC builds MCP-native AI products with security-first design and edge-na
 
 ## 🌐 Live Website
 
-- **Production:** [VoidCat.org](https://voidcat.org) (custom domain)
-- **GitHub Pages:** [sorrowscry86.github.io/voidcat.org](https://sorrowscry86.github.io/voidcat.org)
+- **Production:** [VoidCat.org](https://voidcat.org) (custom domain - pending GitHub Pages enablement)
+- **GitHub Pages:** [sorrowscry86.github.io/voidcat.org](https://sorrowscry86.github.io/voidcat.org) (ready after enablement)
+- **Status:** DNS verified ✅ | Repository deployed ✅ | Pages configuration pending
 
 ## 📋 Repository Structure
 
@@ -85,29 +86,36 @@ Then visit `http://localhost:8000`
 
 ## 🚀 Deployment
 
+### Current Status: October 18, 2025
+- ✅ Repository deployed to main branch
+- ✅ DNS verified at domain registrar (4x A records + CNAME)
+- ✅ CNAME file configured
+- ⏳ Awaiting GitHub Pages enablement
+
 ### GitHub Pages Setup
 
 1. **Repository is already configured:**
    - Remote: `https://github.com/sorrowscry86/voidcat.org.git`
-   - Branch: `main`
+   - Branch: `main` (default)
+   - All files committed and pushed
 
-2. **Commit and push:**
-   ```bash
-   git add .
-   git commit -m "Initial commit: VoidCat.org website"
-   git push -u origin main
-   ```
-
-3. **Enable GitHub Pages:**
-   - Go to repository Settings → Pages
-   - Source: Deploy from branch `main`
+2. **Enable GitHub Pages (Next Step):**
+   - Go to: https://github.com/sorrowscry86/voidcat.org/settings/pages
+   - Source: Deploy from branch → `main`
    - Folder: `/ (root)`
-   - Save and wait 2-3 minutes for deployment
+   - Click Save and wait 2-3 minutes
+   - Site will be live at: https://sorrowscry86.github.io/voidcat.org
 
-4. **Custom Domain (Optional):**
-   - Create `CNAME` file with domain: `voidcat.org`
-   - Configure DNS A records to GitHub Pages IPs
-   - Enable "Enforce HTTPS" in Pages settings
+3. **Configure Custom Domain (Already DNS Verified):**
+   - In GitHub Pages settings: Add custom domain `voidcat.org`
+   - GitHub will auto-verify DNS (DNS already configured)
+   - Enable "Enforce HTTPS" (will be automatic)
+   - Site will be live at: https://voidcat.org
+
+4. **DNS Configuration (Already Complete ✅):**
+   - ✅ A Records: 185.199.108/109/110/111.153
+   - ✅ CNAME: www → sorrowscry86.github.io
+   - ✅ Email records preserved (MX, DKIM, SPF)
 
 ## 📄 Documentation
 
