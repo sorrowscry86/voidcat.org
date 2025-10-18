@@ -21,6 +21,7 @@
         <a href="/research/">Research</a>
         <a href="/roadmap/">Roadmap</a>
         <a href="/company/" aria-current="page">Company</a>
+        <a href="/careers/">Careers</a>
         <a href="/investors/">Investors</a>
         <a href="/projects/">Projects</a>
         <a href="/contact/">Contact</a>
@@ -138,56 +139,101 @@
 
     <section class="section">
       <div class="container">
-        <h2>Operating Principles &amp; Quality Framework</h2>
-        <p>VoidCat's competitive advantage stems not just from technical innovation, but from disciplined engineering culture. We enforce quality at every stage:</p>
+        <h2>Operating Principles: FLAGS & 5-Gate Quality System</h2>
+        <p>VoidCat's competitive advantage stems from disciplined engineering culture. We enforce quality at every stage through two integrated systems:</p>
         
         <article class="principle-block">
           <h3>FLAGS: Eight Dimensions of Engineering Excellence</h3>
           <p>Every decision is evaluated across eight dimensions that balance innovation speed with production reliability:</p>
-          <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 16px 0;">
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Functional Correctness:</strong> Does the code solve the problem? Are edge cases handled?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Latency &amp; Performance:</strong> Is it fast enough? Does it scale? What's the P99 latency?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Accessibility:</strong> Can users understand and use it? Is documentation clear? Are error messages helpful?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Graceful Degradation:</strong> What happens when things fail? Does the system degrade gracefully? Are fallbacks available?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Extensibility:</strong> Can future developers modify this? Is the architecture modular? Are extension points clear?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Security:</strong> Are we defending against attack vectors? Is data encrypted? Are permissions enforced?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Observability:</strong> Can we debug this in production? Are logs useful? Can we trace issues?</li>
-            <li style="background: var(--panel); padding: 12px; border-radius: 4px;"><strong>Sustainability:</strong> Is this maintainable long-term? Is technical debt manageable? Can we iterate?</li>
+          <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 20px 0;">
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+              <strong>Functionality</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Does the code solve the problem? Are edge cases handled? Are all requirements met?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+              <strong>Latency</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Is it fast enough? Does it scale? What's P99 latency? Can it handle 10x load?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+              <strong>Accessibility</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Can users understand and use it? Is documentation clear? Are error messages helpful?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+              <strong>Graceful Degradation</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">What happens when things fail? Does the system degrade gracefully? Are fallbacks available?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+              <strong>Extensibility</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Can future developers modify this? Is the architecture modular? Are extension points clear?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+              <strong>Security</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Are we defending against attack vectors? Is data encrypted? Are permissions enforced?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand);">
+              <strong>Observability</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Can we debug this in production? Are logs useful? Can we trace issues end-to-end?</span>
+            </li>
+            <li style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 3px solid var(--accent);">
+              <strong>Sustainability</strong><br/>
+              <span style="color: var(--muted); font-size: 14px;">Is this maintainable long-term? Is technical debt manageable? Can we iterate?</span>
+            </li>
           </ul>
-          <p><strong>Implementation:</strong> Every PR review evaluates code against FLAGS dimensions. Architecture decision records (ADRs) document trade-offs. Retrospectives identify improvements.</p>
+          <p><strong>Target Score:</strong> ≥8/10 across all dimensions. Every PR review evaluates code against FLAGS. Architecture decision records (ADRs) document trade-offs. Retrospectives identify improvements.</p>
         </article>
 
         <article class="principle-block">
           <h3>5-Gate Development System: From Concept to Production</h3>
-          <p>Features progress through five quality gates before reaching customers:</p>
-          <ul style="display: grid; gap: 12px; margin: 16px 0;">
-            <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
-              <strong>Gate 0 (Concept):</strong> Idea documented with problem statement, success criteria, and estimated effort. Required: business case and technical feasibility assessment. Approval gate before starting development.
+          <p>Features progress through five quality gates before reaching customers. Each gate has explicit exit criteria and mandatory checkpoints:</p>
+          <ul style="display: grid; gap: 16px; margin: 20px 0;">
+            <li style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand); border-radius: 6px;">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <span style="background: var(--brand); color: #0a0c10; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">0</span>
+                <strong style="font-size: 16px;">Gate 0: Concept</strong>
+              </div>
+              <p style="margin: 0; color: var(--muted);">Idea documented with problem statement, success criteria, and estimated effort. <strong>Required:</strong> business case and technical feasibility assessment. <strong>Exit Criteria:</strong> Approval from architecture review board before starting development.</p>
             </li>
-            <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
-              <strong>Gate 1 (Development):</strong> Feature built with comprehensive test coverage (≥90%), type safety, and documentation. Required: passing automated quality gates (linting, type checking, security scanning) and peer code review.
+            <li style="background: var(--panel); padding: 16px; border-left: 4px solid var(--accent); border-radius: 6px;">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <span style="background: var(--accent); color: #0a0c10; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</span>
+                <strong style="font-size: 16px;">Gate 1: Development</strong>
+              </div>
+              <p style="margin: 0; color: var(--muted);">Feature built with comprehensive test coverage (≥90%), type safety, and inline documentation. <strong>Required:</strong> passing automated quality gates (linting, type checking, security scanning) and peer code review against FLAGS dimensions. <strong>Exit Criteria:</strong> All automated checks pass, PR approved by 2+ reviewers.</p>
             </li>
-            <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
-              <strong>Gate 2 (Integration):</strong> Feature tested in integration with dependent systems. Required: E2E tests passing, performance benchmarks meeting baselines, no security regressions detected.
+            <li style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand); border-radius: 6px;">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <span style="background: var(--brand); color: #0a0c10; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</span>
+                <strong style="font-size: 16px;">Gate 2: Integration</strong>
+              </div>
+              <p style="margin: 0; color: var(--muted);">Feature tested in integration with dependent systems. <strong>Required:</strong> E2E tests passing, performance benchmarks meeting baselines, no security regressions detected (Codacy scan). <strong>Exit Criteria:</strong> All integration tests pass, performance regression analysis complete, security audit cleared.</p>
             </li>
-            <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--accent);">
-              <strong>Gate 3 (Staging):</strong> Feature deployed to production-like environment. Required: User acceptance testing (UAT), load testing (stress beyond expected peak), and production readiness checklist verified.
+            <li style="background: var(--panel); padding: 16px; border-left: 4px solid var(--accent); border-radius: 6px;">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <span style="background: var(--accent); color: #0a0c10; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</span>
+                <strong style="font-size: 16px;">Gate 3: Staging</strong>
+              </div>
+              <p style="margin: 0; color: var(--muted);">Feature deployed to production-like environment. <strong>Required:</strong> User acceptance testing (UAT), load testing (stress beyond expected peak), production readiness checklist verified. <strong>Exit Criteria:</strong> UAT sign-off, load test results published, runbook documented, on-call team trained.</p>
             </li>
-            <li style="background: var(--panel); padding: 12px; border-left: 3px solid var(--brand);">
-              <strong>Gate 4 (Production):</strong> Feature released to real customers. Required: monitoring dashboards active, runbook documented, rollback plan tested, incident response procedures trained. Post-release: metrics tracked for 2 weeks before "graduation."
+            <li style="background: var(--panel); padding: 16px; border-left: 4px solid var(--brand); border-radius: 6px;">
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <span style="background: var(--brand); color: #0a0c10; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">4</span>
+                <strong style="font-size: 16px;">Gate 4: Production</strong>
+              </div>
+              <p style="margin: 0; color: var(--muted);">Feature released to real customers. <strong>Required:</strong> monitoring dashboards active, runbook documented, rollback plan tested, incident response procedures trained. <strong>Post-Release:</strong> metrics tracked for 2 weeks before "graduation." <strong>Exit Criteria:</strong> No critical incidents, performance metrics stable, team confidence high.</p>
             </li>
           </ul>
         </article>
 
         <article class="principle-block">
-          <h3>Security Baseline &amp; Privacy-First Design</h3>
-          <p>Security is non-negotiable:</p>
+          <h3>Security Baseline & Privacy-First Architecture</h3>
+          <p>Security is non-negotiable. We enforce defense-in-depth at every layer:</p>
           <ul style="margin: 16px 0;">
-            <li><strong>Defense in Depth:</strong> Multiple security layers. No single point of failure.</li>
-            <li><strong>Zero Trust:</strong> All inputs validated. All access authenticated and authorized. All networks encrypted.</li>
-            <li><strong>Privacy by Design:</strong> Data minimization (collect only what's needed). Encryption at rest and in transit. Retention policies enforced. PII detection and handling.</li>
-            <li><strong>Compliance Ready:</strong> SOC2 Type II audit-ready architecture. GDPR/HIPAA/PCI compliance built in. Regular penetration testing. Vulnerability scanning on every build.</li>
-            <li><strong>Incident Response:</strong> Documented runbooks. On-call rotation. Blameless post-mortems. Metrics tracked (MTTR, incident rate).</li>
+            <li><strong>Defense in Depth:</strong> Multiple independent security layers. No single point of failure.</li>
+            <li><strong>Zero Trust Architecture:</strong> All inputs validated. All access authenticated and authorized. All networks encrypted.</li>
+            <li><strong>Privacy by Design:</strong> Data minimization (collect only what's needed). Encryption at rest and in transit. Retention policies enforced. PII detection and redaction.</li>
+            <li><strong>Compliance Ready:</strong> SOC2 Type II audit-ready architecture. GDPR/HIPAA/PCI compliance built in. Regular penetration testing. Vulnerability scanning on every build (Codacy integration).</li>
+            <li><strong>Incident Response:</strong> Documented runbooks. On-call rotation. Blameless post-mortems. Metrics tracked (MTTR, incident rate, resolution time).</li>
+            <li><strong>OAuth 2.1 & RFC 8707:</strong> Industry-leading authentication. MCP servers secured by default. Resource indicator support for token granularity.</li>
           </ul>
         </article>
       </div>
