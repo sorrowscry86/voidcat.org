@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — VoidCat RDC</title>
+  <meta name="description" content="Technical insights, research updates, and engineering breakthroughs from VoidCat RDC." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Blog & Technical Updates</h1>
+        <p style="color: var(--muted); font-size: 18px;">Deep dives into agentic AI, MCP governance, edge computing, and our research foundations.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Featured Posts</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <article class="blog-card">
+            <div class="blog-card-meta">October 18, 2025</div>
+            <h3><a href="#" style="color: inherit;">MCP Security Baselines: OAuth 2.1 & RFC 8707</a></h3>
+            <p>How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research. Covers threat modeling, implementation details, and deployment considerations.</p>
+            <a href="#">Read full article →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 12, 2025</div>
+            <h3><a href="#" style="color: inherit;">Context OS: Intelligent Tool Governance at Scale</a></h3>
+            <p>Deep dive into our reasoning architecture—how intelligent context management and tool selection drives agent performance beyond raw model size. Includes benchmarks, cost analysis, and practical implementation patterns.</p>
+            <a href="#">Read full article →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 5, 2025</div>
+            <h3><a href="#" style="color: inherit;">Edge Reasoning: Deploying Agents on Cloudflare Workers</a></h3>
+            <p>Technical walkthrough of serverless agent deployment to 330+ Cloudflare edge locations, achieving P99 latency &lt;300ms with zero cold starts. Covers architecture, optimization techniques, and cost models.</p>
+            <a href="#">Read full article →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">September 28, 2025</div>
+            <h3><a href="#" style="color: inherit;">Tool Definition Compression: 70% Token Reduction</a></h3>
+            <p>Reducing verbose OpenAPI specs into minimal descriptions while preserving semantics. Analysis of compression techniques, accuracy retention, and impact on agent performance and cost.</p>
+            <a href="#">Read full article →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">September 20, 2025</div>
+            <h3><a href="#" style="color: inherit;">Multi-Agent Orchestration: The DSN Framework</a></h3>
+            <p>Introduction to our Digital Sanctuary Network—coordinating multiple agents across reasoning, execution, and verification. Includes failure recovery, state management, and real-world applications.</p>
+            <a href="#">Read full article →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">September 12, 2025</div>
+            <h3><a href="#" style="color: inherit;">Privacy-First AI: Local Inference & Data Sovereignty</a></h3>
+            <p>Building Forbidden Library—a desktop app with true local-first architecture. Covers model quantization, on-device inference, encrypted storage, and compliance with HIPAA/GDPR/PCI requirements.</p>
+            <a href="#">Read full article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>By Category</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--brand);">
+            <h3 style="margin-top: 0;">Security & Compliance</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">OAuth 2.1, RFC standards, threat modeling, vulnerability management.</p>
+            <a href="#" style="font-size: 14px;">View all →</a>
+          </div>
+
+          <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <h3 style="margin-top: 0;">Architecture & Design</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">MCP integration, tool governance, agent orchestration, system design.</p>
+            <a href="#" style="font-size: 14px;">View all →</a>
+          </div>
+
+          <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--brand);">
+            <h3 style="margin-top: 0;">Performance & Scale</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">Edge computing, latency optimization, load testing, benchmarks.</p>
+            <a href="#" style="font-size: 14px;">View all →</a>
+          </div>
+
+          <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <h3 style="margin-top: 0;">Engineering & Tools</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">Testing, CI/CD, quality enforcement, development practices.</p>
+            <a href="#" style="font-size: 14px;">View all →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Archive</h2>
+        <p style="color: var(--muted);">All posts from October 2025 and earlier. Latest content above.</p>
+        <div style="background: var(--panel); padding: 24px; border-radius: 8px;">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 8px 0; border-bottom: 1px solid #1b2230;"><a href="#">October 2025 (6 posts)</a></li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #1b2230;"><a href="#">September 2025 (4 posts)</a></li>
+            <li style="padding: 8px 0;"><a href="#">August 2025 (3 posts)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Questions?</h2>
+        <p>Join the discussion on <a href="https://github.com/sorrowscry86">GitHub</a> or reach out at <a href="mailto:sorrowscry86@voidcat.org">sorrowscry86@voidcat.org</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> VoidCat RDC, LLC. All rights reserved. Built on MCP, secured by OAuth 2.1, deployed at the edge.</p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

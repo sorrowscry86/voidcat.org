@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="VoidCat RDC logo" width="40" height="40" />
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
         <span>VoidCat RDC</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -27,15 +27,23 @@
         <a href="/projects/">Projects</a>
         <a href="/contact/">Contact</a>
       </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Built on the AI Industry Standard.<br/>Secured Before the Competition.</h1>
-        <p>MCP-native agentic systems designed for the $93.2B market. Adopted by OpenAI and Google. Hardened with OAuth 2.1. Deployed to 330+ cities with zero cold starts.</p>
-        <a class="cta" href="#narrative">See Why We're Different</a>
+        <div class="hero-content">
+          <div class="hero-logo-area">
+            <img src="/assets/logo.svg" alt="VoidCat R&D cosmic cat logo" />
+          </div>
+          <div class="hero-text">
+            <h1>Built on the AI Industry Standard.<br/>Secured Before the Competition.</h1>
+            <p>MCP-native agentic systems designed for the $93.2B market. Adopted by OpenAI and Google. Hardened with OAuth 2.1. Deployed to 330+ cities with zero cold starts.</p>
+            <a class="cta" href="#narrative">See Why We're Different</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -233,6 +241,74 @@
       </div>
     </section>
 
+    <section id="blog" class="section">
+      <div class="container">
+        <h2>Latest from VoidCat</h2>
+        <p>Technical insights, research updates, and engineering breakthroughs. Stay current with our evolving platform.</p>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <article class="blog-card">
+            <div class="blog-card-meta">October 18, 2025</div>
+            <h3>MCP Security Baselines: OAuth 2.1 & RFC 8707</h3>
+            <p>How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research.</p>
+            <a href="/blog/mcp-security-baselines/">Read more →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 12, 2025</div>
+            <h3>Context OS: Intelligent Tool Governance at Scale</h3>
+            <p>Deep dive into our reasoning architecture—how intelligent context management and tool selection drives agent performance beyond raw model size.</p>
+            <a href="/blog/context-os-tool-governance/">Read more →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 5, 2025</div>
+            <h3>Edge Reasoning: Deploying Agents on Cloudflare Workers</h3>
+            <p>Technical walkthrough of serverless agent deployment to 330+ Cloudflare edge locations, achieving P99 latency &lt;300ms with zero cold starts.</p>
+            <a href="/blog/edge-reasoning-cloudflare/">Read more →</a>
+          </article>
+        </div>
+
+        <p style="margin-top: 32px; text-align: center;">
+          <a href="/blog/" style="font-weight: 600; padding: 12px 24px; border: 1px solid var(--brand); border-radius: 8px; display: inline-block;">View All Posts →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="research-highlights" class="section">
+      <div class="container">
+        <h2>Research & Publications</h2>
+        <p>Foundational research on agentic AI, edge computing, and privacy-first systems. Our work drives industry standards.</p>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <article class="research-card">
+            <div class="research-card-type">Whitepaper</div>
+            <h3>Context OS: A Thesis on Intelligent Tool Governance</h3>
+            <p>Comprehensive framework for managing agent context and tool selection. Demonstrates 40% improvement in accuracy and 60% reduction in token overhead.</p>
+            <a href="/research/">Download PDF →</a>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-type">Research Paper</div>
+            <h3>Tool-RAG Hybrids: Optimal Routing for Agent Intent</h3>
+            <p>Analysis of routing strategies for complex queries, comparing RAG-first vs Tool-first approaches with real-world benchmarks and performance trade-offs.</p>
+            <a href="/research/">Download PDF →</a>
+          </article>
+
+          <article class="research-card">
+            <div class="research-card-type">Technical Note</div>
+            <h3>Edge-Native Reasoning: Latency Optimization for Serverless Agents</h3>
+            <p>Deep technical analysis of deploying reasoning engines on edge networks, covering optimization techniques, cost models, and deployment patterns.</p>
+            <a href="/research/">Download PDF →</a>
+          </article>
+        </div>
+
+        <p style="margin-top: 32px; text-align: center;">
+          <a href="/research/" style="font-weight: 600; padding: 12px 24px; border: 1px solid var(--accent); border-radius: 8px; display: inline-block;">Explore Full Research →</a>
+        </p>
+      </div>
+    </section>
+
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
@@ -252,6 +328,33 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+
+      // Close mobile menu when a link is clicked
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
   </script>
 </body>
 </html>
