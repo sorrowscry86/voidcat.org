@@ -2,7 +2,7 @@
 
 **Production-ready AI systems positioned at the convergence of MCP standardization, agentic AI explosion ($93.2B market), and edge computing evolution.**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success)](https://voidcat.org)
+[![Website](https://img.shields.io/badge/Website-Live-success)](https://voidcat.org)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 
 ## 🚀 About VoidCat RDC
