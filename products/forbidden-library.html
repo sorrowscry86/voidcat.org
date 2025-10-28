@@ -71,6 +71,64 @@
       </div>
     </section>
 
+    <section class="section" style="background: linear-gradient(135deg, rgba(88, 86, 214, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);">
+      <div class="container">
+        <h2>How It Works</h2>
+        <p style="color: var(--muted); margin-bottom: 32px;">Technical system flow: Privacy-first desktop AI from model installation to secure inference with zero data transmission.</p>
+        
+        <div style="display: grid; gap: 24px;">
+          <article style="background: var(--panel); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0;">Stage 1: Model Installation & Optimization</h3>
+            <p><strong>User Action:</strong> Select model from catalog (Llama 3, Mistral, Phi, CodeLlama, etc.) via one-click interface.</p>
+            <p><strong>Process:</strong> Model download from Ollama registry or Hugging Face (automatic source selection for best availability), local caching in content-addressable storage (deduplication of shared layers across models), GPU detection and driver validation (CUDA for NVIDIA, Metal for Apple Silicon, Vulkan for cross-platform), automatic quantization selection (Q4_K_M for 8GB RAM systems, Q5_K_M for 16GB+, FP16 for high-memory systems), performance benchmarking on first run (measure tokens/second for model + hardware combination).</p>
+            <p><strong>Output:</strong> Optimized model ready for inference, stored locally with encryption at rest (AES-256).</p>
+            <p style="margin-bottom: 0;"><strong>Technical Stack:</strong> Ollama integration, llama.cpp backend, Rust file system abstraction (Tauri), encrypted SQLite metadata store.</p>
+          </article>
+
+          <article style="background: var(--panel); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0;">Stage 2: Workspace & Session Management</h3>
+            <p><strong>User Action:</strong> Create project workspace or open existing conversation.</p>
+            <p><strong>Process:</strong> Workspace isolation: each project stored in encrypted database partition (prevents cross-contamination), session initialization: load conversation history from local SQLite, context window management: automatic pruning of old messages to fit model context limits (typically 4K-32K tokens), tagging and search indexing: conversations indexed via full-text search for rapid retrieval, multi-user profile support: separate encrypted vaults per user (enterprise deployments).</p>
+            <p><strong>Output:</strong> Active workspace with conversation history, tags, and metadata loaded into UI.</p>
+            <p style="margin-bottom: 0;"><strong>Technical Stack:</strong> SQLite with FTS5 (full-text search), encryption via sqlcipher, SvelteKit frontend with reactive state management.</p>
+          </article>
+
+          <article style="background: var(--panel); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0;">Stage 3: Local Inference Execution</h3>
+            <p><strong>User Action:</strong> Submit prompt to model via chat interface.</p>
+            <p><strong>Process:</strong> Prompt preprocessing: template application (system prompts, formatting), context assembly: inject conversation history + workspace documents if relevant, local inference via Ollama API: prompt sent to local llama.cpp server (no network transmission), GPU acceleration: CUDA kernels for NVIDIA, Metal Performance Shaders for Apple, CPU fallback with SIMD optimizations, streaming response: tokens generated incrementally, displayed in real-time, token counting and performance tracking: measure latency, tokens/second, memory usage.</p>
+            <p><strong>Output:</strong> Model response streamed to UI, stored in encrypted local database, zero data leaves device.</p>
+            <p style="margin-bottom: 0;"><strong>Technical Stack:</strong> Ollama REST API, llama.cpp inference engine, WebSocket streaming for UI updates, Rust backend for IPC (inter-process communication).</p>
+          </article>
+
+          <article style="background: var(--panel); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0;">Stage 4: Tool Integration via MCP Protocol</h3>
+            <p><strong>User Action:</strong> Enable MCP tools (code editor integration, database connectors, API clients).</p>
+            <p><strong>Process:</strong> MCP server registration: external tools registered with permissions model (read/write access defined), tool invocation from model: LLM generates structured tool calls (JSON schema validated), local execution: tool runs on device with sandboxing (no external network unless explicitly authorized), result injection: tool output returned to model for next reasoning step, audit logging: all tool invocations logged with timestamps, parameters, results.</p>
+            <p><strong>Output:</strong> Enhanced AI workflows with access to local files, databases, APIs—all executed on-device.</p>
+            <p style="margin-bottom: 0;"><strong>Technical Stack:</strong> MCP protocol implementation (Rust), JSON schema validation, sandboxed subprocess execution, audit logs in encrypted SQLite.</p>
+          </article>
+
+          <article style="background: var(--panel); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="margin-top: 0;">Stage 5: Export & Sync (Optional)</h3>
+            <p><strong>User Action:</strong> Export conversation/project or enable cross-device sync.</p>
+            <p><strong>Process:</strong> Export: generate PDF/Word/Markdown from conversation with formatting preserved, encryption: if sync enabled, end-to-end encryption via CRDT (Conflict-free Replicated Data Types), sync mechanism: changes propagated to self-hosted sync server or VoidCat-managed option (user choice), decryption: only on authorized devices with user's encryption key (zero-knowledge architecture), conflict resolution: CRDTs ensure eventual consistency without data loss.</p>
+            <p><strong>Output:</strong> Exported artifacts or synchronized workspace across devices, privacy maintained throughout.</p>
+            <p style="margin-bottom: 0;"><strong>Technical Stack:</strong> Yrs CRDT library, ChaCha20-Poly1305 encryption, optional sync via WebSocket, export via pandoc integration.</p>
+          </article>
+        </div>
+
+        <div style="margin-top: 32px; padding: 20px; background: var(--panel); border-radius: 8px; border: 1px solid rgba(88, 86, 214, 0.3);">
+          <h4 style="margin-top: 0; color: var(--accent);">🔒 Privacy Architecture Guarantees</h4>
+          <p style="margin-bottom: 0;"><strong>Zero Cloud Dependency:</strong> All inference runs locally via Ollama/llama.cpp—no API calls to external services.<br/>
+          <strong>Encrypted Storage:</strong> All data encrypted at rest (AES-256) and in transit (if sync enabled, E2E encrypted).<br/>
+          <strong>No Telemetry:</strong> Zero usage tracking, crash reporting optional and fully anonymized (user consent required).<br/>
+          <strong>Audit Trail:</strong> Complete logs of all operations (model invocations, tool usage, data access) stored locally for compliance review.<br/>
+          <strong>Open Source Core:</strong> Inference engine (llama.cpp) and runtime (Tauri) are open source and auditable.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section"><div class="container">
       <h2>Core Features</h2>
       <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; list-style: none; padding: 0;">
