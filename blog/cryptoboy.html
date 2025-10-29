@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoBoy: AI-Powered Crypto Trading — VoidCat RDC</title>
+  <meta name="description" content="Introducing CryptoBoy: AI-powered crypto trading from VoidCat RDC — combining real-time news sentiment, classic indicators, and safety-first controls." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>CryptoBoy: The Future of AI‑Powered Crypto Trading</h1>
+        <p>Smarter, safer, seriously cool crypto automation — actively developed at VoidCat RDC.</p>
+        <a class="cta" href="/blog/">← Back to Blog</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-card-meta">Published: October 28, 2025 • Author: Wykeve Freeman</div>
+        <h2>Imagine a trading bot that doesn’t just watch price charts — it reads the market’s mind.</h2>
+        <p>That’s what <strong>CryptoBoy</strong> is all about, and here at VoidCat RDC, it’s being built from scratch. This is more than just code; it’s a vision for smarter, safer, and seriously cool crypto automation.</p>
+
+        <h3>What Makes CryptoBoy Special?</h3>
+        <ul>
+          <li><strong>Real‑Time News AI:</strong> CryptoBoy scours top crypto news feeds, processing market sentiment with a local LLM (Ollama) before making any moves. It’s like having a tireless analyst at your side, 24/7.</li>
+          <li><strong>Classic Meets Cutting‑Edge:</strong> Proven technical indicators — RSI, MACD, Bollinger Bands — combined with real‑time AI insight for an edge few bots can match.</li>
+          <li><strong>Risk Control Built In:</strong> From aggressive stop‑losses to trade caps and dry‑run backtesting, safety is treated as a core feature, not an afterthought.</li>
+          <li><strong>Plug‑and‑Play Tech:</strong> Full Docker support, API hooks, Telegram alerts, and lucid docs make it accessible beyond hardcore coders.</li>
+        </ul>
+
+        <h3>Why the Hype? Because It’s Just Getting Started…</h3>
+        <p>VoidCat RDC is blazing a trail. Active development includes multi‑coin portfolios, dashboard monitoring, deep‑learning price prediction, and more. The bot is evolving weekly — unlocking possibilities no static solution can match.</p>
+
+        <h3>Get Ready to Join the Adventure</h3>
+        <p>Whether you’re a developer eager to fork and contribute, a crypto trader hungry for an edge, or just someone who loves seeing AI in action — CryptoBoy will have something for you.</p>
+        <p>As the roadmap expands, expect tools for smarter analysis, deeper integrations, and community challenges that keep everyone engaged.</p>
+
+        <p><strong>This is your invitation:</strong> watch this space, join the feedback loop, or dive into the code — the future of crypto trading automation is being shaped, live, by VoidCat RDC.</p>
+
+        <blockquote>
+          CryptoBoy isn’t just another bot. It’s an experiment. It’s a movement. And it’s coming soon, powered by the wild energy of VoidCat RDC.
+        </blockquote>
+
+        <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="cta" href="/contact/">Get Notified</a>
+          <a class="cta" href="/blog/">More Articles</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>© <span id="year"></span> VoidCat RDC, LLC. Deliberate Innovation. Human Augmentation.</strong></p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
