@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Podcasts — VoidCat RDC</title>
+  <meta name="description" content="Listen to the VoidCat RDC podcast. Engineering strategy, agentic AI, MCP governance, edge deployments, and practical lessons—short episodes for busy builders." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .podcast-player { background: var(--panel); border-radius: 12px; padding: 16px; }
+    .podcast-controls { display: flex; align-items: center; gap: 12px; }
+    .podcast-meta { color: var(--muted); font-size: 14px; }
+    .podcast-progress { width: 100%; }
+    .podcast-playlist { list-style: none; padding: 0; margin: 0; }
+    .podcast-item { padding: 12px; border-bottom: 1px solid #1b2230; display: flex; justify-content: space-between; gap: 12px; }
+    .podcast-item button { background: transparent; color: var(--brand); border: none; font-weight: 600; cursor: pointer; }
+    .time { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Podcasts</h1>
+        <p style="color: var(--muted); font-size: 18px; max-width: 820px;">Engineering strategy, agentic AI, MCP governance, edge deployments, security, and practical lessons—short episodes designed for busy builders. Add episodes by updating <code>assets/podcasts/manifest.json</code>.</p>
+
+        <div id="podcast-root" class="grid" style="grid-template-columns: 2fr 1fr; align-items: start;">
+          <div>
+            <div class="podcast-player" role="region" aria-label="Podcast player">
+              <div class="podcast-current">
+                <h2 id="episode-title" style="margin: 0 0 4px 0;">No episodes yet</h2>
+                <p id="episode-desc" class="podcast-meta" style="margin: 0 0 12px 0;">Add episodes to <code>assets/podcasts/manifest.json</code> to populate the player and playlist.</p>
+              </div>
+              <div class="podcast-controls">
+                <button id="play-btn" aria-label="Play" disabled>▶</button>
+                <input id="seek" class="podcast-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" disabled />
+                <span class="time"><span id="current">0:00</span> / <span id="duration">0:00</span></span>
+              </div>
+              <audio id="audio" preload="none"></audio>
+            </div>
+          </div>
+          <aside>
+            <h3 style="margin-top: 0;">Episodes</h3>
+            <ul id="playlist" class="podcast-playlist"></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Listen on Your Favorite Platform</h2>
+        <p class="podcast-meta">Prefer an app? Add platform links below once your show is listed.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="cta" href="#" aria-disabled="true" onclick="return false;">Apple Podcasts (soon)</a>
+          <a class="cta" href="#" aria-disabled="true" onclick="return false;">Spotify (soon)</a>
+          <a class="cta" href="#" aria-disabled="true" onclick="return false;">RSS (soon)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>© <span id="year"></span> VoidCat RDC, LLC. Deliberate Innovation. Human Augmentation.</strong></p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Podcast logic
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('play-btn');
+    const seek = document.getElementById('seek');
+    const currentEl = document.getElementById('current');
+    const durationEl = document.getElementById('duration');
+    const titleEl = document.getElementById('episode-title');
+    const descEl = document.getElementById('episode-desc');
+    const playlistEl = document.getElementById('playlist');
+
+    let episodes = [];
+    let index = 0;
+    let seeking = false;
+
+    function fmt(t) {
+      const s = Math.floor(t % 60).toString().padStart(2,'0');
+      const m = Math.floor(t / 60).toString();
+      return `${m}:${s}`;
+    }
+
+    function load(i) {
+      index = i;
+      const ep = episodes[i];
+      if (!ep) return;
+      audio.src = ep.src;
+      titleEl.textContent = ep.title || 'Untitled';
+      descEl.textContent = ep.description || '';
+      playBtn.disabled = false;
+      seek.disabled = false;
+      [...playlistEl.querySelectorAll('.podcast-item')].forEach((li, idx) => {
+        li.style.background = idx === index ? 'rgba(255,255,255,0.02)' : 'transparent';
+      });
+    }
+
+    function renderPlaylist() {
+      playlistEl.innerHTML = '';
+      episodes.forEach((ep, i) => {
+        const li = document.createElement('li');
+        li.className = 'podcast-item';
+        li.innerHTML = `
+          <div>
+            <div style="font-weight:600;">${ep.title}</div>
+            <div class="podcast-meta">${new Date(ep.date).toLocaleDateString()}${ep.duration ? ' • ' + ep.duration : ''}</div>
+          </div>
+          <div>
+            <button aria-label="Play episode">Play</button>
+          </div>
+        `;
+        li.querySelector('button').addEventListener('click', () => { load(i); audio.play(); });
+        playlistEl.appendChild(li);
+      });
+    }
+
+    async function init() {
+      try {
+        const res = await fetch('/assets/podcasts/manifest.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('manifest fetch failed');
+        const data = await res.json();
+        episodes = Array.isArray(data.episodes) ? data.episodes : [];
+      } catch (e) {
+        console.warn('Podcast manifest not found or invalid. Showing empty state.');
+        episodes = [];
+      }
+      if (episodes.length > 0) {
+        renderPlaylist();
+        load(0);
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) { audio.play(); } else { audio.pause(); }
+    });
+    audio.addEventListener('play', () => { playBtn.textContent = '⏸'; playBtn.setAttribute('aria-label','Pause'); });
+    audio.addEventListener('pause', () => { playBtn.textContent = '▶'; playBtn.setAttribute('aria-label','Play'); });
+    audio.addEventListener('loadedmetadata', () => { durationEl.textContent = fmt(audio.duration || 0); });
+    audio.addEventListener('timeupdate', () => {
+      if (seeking) return;
+      currentEl.textContent = fmt(audio.currentTime || 0);
+      const p = (audio.currentTime / (audio.duration || 1)) * 100;
+      seek.value = String(p);
+    });
+    seek.addEventListener('input', () => { seeking = true; });
+    seek.addEventListener('change', () => {
+      const p = Number(seek.value) / 100;
+      audio.currentTime = p * (audio.duration || 0);
+      seeking = false;
+    });
+
+    init();
+  </script>
+</body>
+</html>
