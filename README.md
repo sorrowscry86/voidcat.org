@@ -119,6 +119,12 @@ Then visit `http://localhost:8000`
 
 ## 📄 Documentation
 
+### Living Project Documentation
+- [PROJECT_STATUS.md](PROJECT_STATUS.md) - **Living source of truth** for all project information
+- [PUBLISHING_GUIDE.md](PUBLISHING_GUIDE.md) - How to publish blog posts and updates
+- [SETUP_COMPLETE.md](SETUP_COMPLETE.md) - Publishing pipeline setup documentation
+
+### Historical Reports
 - [CONTENT_EXPANSION_COMPLETE.md](CONTENT_EXPANSION_COMPLETE.md) - Content update summary
 - [SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md) - Security verification
 - [UPLOAD_GUIDE.md](UPLOAD_GUIDE.md) - Detailed deployment guide
@@ -149,6 +155,8 @@ Then visit `http://localhost:8000`
 - **Edge Computing** - Deployed across 330+ Cloudflare cities
 - **Privacy-First** - Local inference, no data exfiltration
 - **Production-Ready** - Complete billing, E2E testing, monitoring
+- **Automated Publishing** - Blog posts auto-published from markdown to HTML
+- **Living Documentation** - PROJECT_STATUS.md as single source of truth
 
 ## 📈 Market Position
 
