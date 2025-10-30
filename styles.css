@@ -13,6 +13,41 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: var(--brand); text-decoration: none; transition: all 0.2s ease; }
 a:hover { text-decoration: underline; transform: translateY(-1px); }
 
+/* Accessibility: Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--brand);
+  color: #0a0c10;
+  padding: 12px 16px;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+/* Accessibility: Focus indicators */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+button:focus-visible, .cta:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(128, 238, 192, 0.2);
+}
+
 .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 .site-header { position: sticky; top: 0; background: rgba(11,13,18,.95); backdrop-filter: blur(8px); border-bottom: 1px solid #1b2230; z-index: 100; }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }

@@ -5,8 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog — VoidCat RDC</title>
   <meta name="description" content="Technical insights, research updates, and engineering breakthroughs from VoidCat RDC." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Blog — VoidCat RDC" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://voidcat.org/blog/" />
+  <meta property="og:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+  <meta property="og:description" content="Security-first, MCP-native agentic AI systems. Deployed to the edge." />
+  <meta property="og:site_name" content="VoidCat RDC" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — VoidCat RDC" />
+  <meta name="twitter:description" content="Security-first, MCP-native agentic AI systems. Deployed to the edge." />
+  <meta name="twitter:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://voidcat.org/blog/" />
+
   <link rel="icon" type="image/png" href="/assets/logo.png" />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Web Analytics -->
+  <script defer data-domain="voidcat.org" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -19,7 +40,6 @@
         <a href="/products/">Products</a>
         <a href="/solutions/">Solutions</a>
         <a href="/research/">Research</a>
-        <a href="/podcasts/">Podcasts</a>
         <a href="/roadmap/">Roadmap</a>
         <a href="/company/">Company</a>
         <a href="/investors/">Investors</a>
@@ -33,129 +53,40 @@
   <main>
     <section class="section">
       <div class="container">
-        <h2>Podcast</h2>
-        <div class="grid" style="grid-template-columns: 2fr 1fr; align-items: start;">
-          <div style="background: var(--panel); border-radius: 12px; padding: 16px;">
-            <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
-              <h3 style="margin:0;">VoidCat RDC Podcast</h3>
-              <a class="cta" href="/podcasts/">Open Full Player</a>
-            </div>
-            <p class="podcast-meta" style="margin-top: 0;">Short, practical episodes on agentic AI, MCP governance, and engineering at the edge.</p>
-            <div id="mini-player">
-              <div style="display:flex; align-items:center; gap:12px;">
-                <button id="mini-play" aria-label="Play" disabled>▶</button>
-                <div style="flex:1;">
-                  <div id="mini-title" style="font-weight:600;">No episodes yet</div>
-                  <div id="mini-meta" style="color: var(--muted); font-size: 12px;">Add episodes via <code>assets/podcasts/manifest.json</code></div>
-                </div>
-                <span class="time"><span id="mini-current">0:00</span> / <span id="mini-duration">0:00</span></span>
-              </div>
-              <input id="mini-seek" type="range" min="0" max="100" value="0" step="0.1" style="width:100%; margin-top:8px;" disabled />
-              <audio id="mini-audio" preload="none"></audio>
-            </div>
-          </div>
-          <div>
-            <p style="color: var(--muted); font-size: 14px;">Prefer an app? Platform links are coming soon. Until then, listen on the site or subscribe once RSS is available.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      // Lightweight mini player powered by the same manifest
-      (async function(){
-        const audio = document.getElementById('mini-audio');
-        const playBtn = document.getElementById('mini-play');
-        const titleEl = document.getElementById('mini-title');
-        const metaEl = document.getElementById('mini-meta');
-        const seek = document.getElementById('mini-seek');
-        const cur = document.getElementById('mini-current');
-        const dur = document.getElementById('mini-duration');
-        function fmt(t){ const s=String(Math.floor(t%60)).padStart(2,'0'); const m=Math.floor(t/60); return m+':'+s; }
-        try {
-          const res = await fetch('/assets/podcasts/manifest.json', { cache: 'no-store' });
-          if (!res.ok) throw new Error('manifest');
-          const data = await res.json();
-          const episodes = Array.isArray(data.episodes) ? data.episodes : [];
-          if (episodes.length){
-            const ep = episodes[0];
-            titleEl.textContent = ep.title || 'Untitled';
-            metaEl.textContent = new Date(ep.date).toLocaleDateString() + (ep.duration ? ' • '+ep.duration : '');
-            audio.src = ep.src;
-            playBtn.disabled = false;
-            seek.disabled = false;
-          }
-        } catch (e) { /* empty state already shown */ }
-        playBtn.addEventListener('click', ()=>{ if(audio.paused) audio.play(); else audio.pause(); });
-        audio.addEventListener('play', ()=>{ playBtn.textContent='⏸'; });
-        audio.addEventListener('pause', ()=>{ playBtn.textContent='▶'; });
-        audio.addEventListener('loadedmetadata', ()=>{ dur.textContent = fmt(audio.duration||0); });
-        audio.addEventListener('timeupdate', ()=>{ cur.textContent = fmt(audio.currentTime||0); seek.value = String(((audio.currentTime/(audio.duration||1))*100)||0); });
-        seek.addEventListener('change', ()=>{ audio.currentTime = (Number(seek.value)/100) * (audio.duration||0); });
-      })();
-    </script>
         <h1>Blog & Technical Updates</h1>
         <p style="color: var(--muted); font-size: 18px;">Deep dives into agentic AI, MCP governance, edge computing, and our research foundations.</p>
       </div>
     </section>
 
+    
     <section class="section">
       <div class="container">
         <h2>Featured Posts</h2>
-        <p style="color: var(--muted); margin-bottom: 24px;"><strong>Strategy, Responsibility, and Augmentation:</strong> We publish deep analysis on agentic AI, ethical development, market trends, and the practical philosophy behind responsible innovation.</p>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-          <article class="blog-card" style="border-left: 4px solid var(--brand);">
-            <div class="blog-card-meta">October 29, 2025</div>
-            <h3><a href="/blog/age-of-agents.html" style="color: inherit;">The Age of Agents: How AI's Next Leap is Redefining Tech</a></h3>
-            <p>Agentic AI moves beyond prompts to autonomous goal pursuit. See how the silicon arms race, platform battles, and robotics frontier will reshape your roadmap.</p>
-            <a href="/blog/age-of-agents.html">Read full article →</a>
-          </article>
-          <article class="blog-card" style="border-left: 4px solid var(--accent);">
-            <div class="blog-card-meta">October 28, 2025</div>
-            <h3><a href="/blog/cryptoboy.html" style="color: inherit;">CryptoBoy: The Future of AI‑Powered Crypto Trading</a></h3>
-            <p>Introducing CryptoBoy — a smarter, safer crypto automation project combining real‑time news sentiment, classic indicators, and safety‑first controls. Built at VoidCat RDC.</p>
-            <a href="/blog/cryptoboy.html">Read full article →</a>
-          </article>
-          <article class="blog-card">
-            <div class="blog-card-meta">October 24, 2025</div>
-            <h3><a href="#" style="color: inherit;">Why Augmentation is More Profitable Than Replacement</a></h3>
-            <p>Economic analysis: Why companies building augmentation tools generate sustainable revenue, while autonomous-replacement approaches create existential risk. Case studies from product development and market feedback.</p>
-            <a href="#">Read full article →</a>
-          </article>
 
           <article class="blog-card">
-            <div class="blog-card-meta">October 22, 2025</div>
-            <h3><a href="#" style="color: inherit;">The Five Signs of AI 'Bubble-Tech': How to Spot Recklessness</a></h3>
-            <p>Framework for evaluating AI companies: unrealistic promises, security shortcuts, zero-sum framing, marketing over substance, and ignoring regulatory reality. How VoidCat RDC avoids these traps.</p>
-            <a href="#">Read full article →</a>
+            <div class="blog-card-meta">October 24, 2025 • Engineering</div>
+            <h3><a href="/blog/posts/introducing-publishing-system.html" style="color: inherit;">Introducing VoidCat RDC's Automated Publishing System</a></h3>
+            <p>How we built a fully automated blog publishing pipeline that converts markdown to live website content in under 3 minutes, with zero manual HTML editing.</p>
+            <div class="blog-card-tags"><span class="tag">Publishing</span> <span class="tag">Automation</span> <span class="tag">GitHub Actions</span> <span class="tag">Documentation</span></div>
+            <a href="/blog/posts/introducing-publishing-system.html">Read full article →</a>
           </article>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="section">
+      <div class="container">
+        <h2>Latest Articles</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
 
           <article class="blog-card">
-            <div class="blog-card-meta">October 20, 2025</div>
-            <h3><a href="#" style="color: inherit;">Our Ethical Framework vs. The 'Reckless Race': A Detailed Comparison</a></h3>
-            <p>Concrete comparison: security practices, transparency standards, development rigor, human authority principles, and product philosophy. Why deliberate innovation outperforms hype-driven development.</p>
-            <a href="#">Read full article →</a>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-card-meta">October 18, 2025</div>
-            <h3><a href="#" style="color: inherit;">MCP Security Baselines: OAuth 2.1 & RFC 8707</a></h3>
-            <p>How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research. Covers threat modeling, implementation details, and deployment considerations.</p>
-            <a href="#">Read full article →</a>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-card-meta">October 12, 2025</div>
-            <h3><a href="#" style="color: inherit;">Context OS: Intelligent Tool Governance at Scale</a></h3>
-            <p>Deep dive into our reasoning architecture—how intelligent context management and tool selection drives agent performance beyond raw model size. Includes benchmarks, cost analysis, and practical implementation patterns.</p>
-            <a href="#">Read full article →</a>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-card-meta">October 5, 2025</div>
-            <h3><a href="#" style="color: inherit;">Edge Reasoning: Deploying Agents on Cloudflare Workers</a></h3>
-            <p>Technical walkthrough of serverless agent deployment to 330+ Cloudflare edge locations, achieving P99 latency &lt;300ms with zero cold starts. Covers architecture, optimization techniques, and cost models.</p>
-            <a href="#">Read full article →</a>
+            <div class="blog-card-meta">October 24, 2025 • Engineering</div>
+            <h3><a href="/blog/posts/introducing-publishing-system.html" style="color: inherit;">Introducing VoidCat RDC's Automated Publishing System</a></h3>
+            <p>How we built a fully automated blog publishing pipeline that converts markdown to live website content in under 3 minutes, with zero manual HTML editing.</p>
+            <div class="blog-card-tags"><span class="tag">Publishing</span> <span class="tag">Automation</span> <span class="tag">GitHub Actions</span> <span class="tag">Documentation</span></div>
+            <a href="/blog/posts/introducing-publishing-system.html">Read full article →</a>
           </article>
         </div>
       </div>
@@ -163,60 +94,55 @@
 
     <section class="section">
       <div class="container">
-        <h2>Strategic Content Pillars</h2>
+        <h2>By Category</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+
           <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--brand);">
-            <h3 style="margin-top: 0;">Market Strategy</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">Augmentation vs automation, market positioning, competitive analysis, industry trends.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
+            <h3 style="margin-top: 0;">🏗️ Architecture</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">0 articles</p>
+            <a href="/blog/?category=architecture" style="font-size: 14px;">View all →</a>
           </div>
 
           <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent);">
-            <h3 style="margin-top: 0;">Ethical Development</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">Responsible AI practices, transparency, human authority, ethical frameworks.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
+            <h3 style="margin-top: 0;">🔐 Security</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">0 articles</p>
+            <a href="/blog/?category=security" style="font-size: 14px;">View all →</a>
           </div>
 
           <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--brand);">
-            <h3 style="margin-top: 0;">Security & Compliance</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">OAuth 2.1, RFC standards, threat modeling, vulnerability management.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
+            <h3 style="margin-top: 0;">⚡ Performance</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">0 articles</p>
+            <a href="/blog/?category=performance" style="font-size: 14px;">View all →</a>
           </div>
 
           <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent);">
-            <h3 style="margin-top: 0;">Architecture & Design</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">MCP integration, tool governance, agent orchestration, system design.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
+            <h3 style="margin-top: 0;">⚙️ Engineering</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">1 article</p>
+            <a href="/blog/?category=engineering" style="font-size: 14px;">View all →</a>
           </div>
 
           <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--brand);">
-            <h3 style="margin-top: 0;">Performance & Scale</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">Edge computing, latency optimization, load testing, benchmarks.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
-          </div>
-
-          <div style="background: var(--panel); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent);">
-            <h3 style="margin-top: 0;">Engineering & Tools</h3>
-            <p style="margin: 0; color: var(--muted); font-size: 14px;">Testing, CI/CD, quality enforcement, development practices.</p>
-            <a href="#" style="font-size: 14px;">View all →</a>
+            <h3 style="margin-top: 0;">🔬 Research</h3>
+            <p style="margin: 0; color: var(--muted); font-size: 14px;">0 articles</p>
+            <a href="/blog/?category=research" style="font-size: 14px;">View all →</a>
           </div>
         </div>
       </div>
     </section>
 
+    
     <section class="section">
       <div class="container">
         <h2>Archive</h2>
-        <p style="color: var(--muted);">All posts from October 2025 and earlier. Latest content above.</p>
+        <p style="color: var(--muted);">Browse all posts by month.</p>
         <div style="background: var(--panel); padding: 24px; border-radius: 8px;">
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="padding: 8px 0; border-bottom: 1px solid #1b2230;"><a href="#">October 2025 (6 posts)</a></li>
-            <li style="padding: 8px 0; border-bottom: 1px solid #1b2230;"><a href="#">September 2025 (4 posts)</a></li>
-            <li style="padding: 8px 0;"><a href="#">August 2025 (3 posts)</a></li>
+            <li style="padding: 8px 0; border-bottom: 1px solid #1b2230;"><a href="/blog/?archive=2025-10">October 2025 (1 post)</a></li>
           </ul>
         </div>
       </div>
     </section>
+    
 
     <section id="contact" class="section">
       <div class="container">
@@ -228,7 +154,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p><strong>© <span id="year"></span> VoidCat RDC, LLC. Deliberate Innovation. Human Augmentation.</strong></p>
+      <p>© <span id="year"></span> VoidCat RDC, LLC. All rights reserved. Built on MCP, secured by OAuth 2.1, deployed at the edge.</p>
       <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
     </div>
   </footer>
@@ -257,6 +183,27 @@
         if (!e.target.closest('.site-header')) {
           nav.classList.remove('active');
           navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Category and archive filtering
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const archive = urlParams.get('archive');
+
+    if (category || archive) {
+      // Filter posts based on URL params
+      const posts = document.querySelectorAll('.blog-card');
+      posts.forEach(post => {
+        const postCategory = post.querySelector('.blog-card-meta').textContent.split('•')[1].trim().toLowerCase();
+        const postDate = post.querySelector('.blog-card-meta').textContent.split('•')[0].trim();
+        
+        if (category && postCategory !== category) {
+          post.parentElement.style.display = 'none';
+        }
+        if (archive && !postDate.includes(archive)) {
+          post.parentElement.style.display = 'none';
         }
       });
     }

@@ -3,8 +3,77 @@
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact — VoidCat RDC</title>
 <meta name="description" content="Contact VoidCat RDC." />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Contact — VoidCat RDC" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://voidcat.org/contact/" />
+<meta property="og:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+<meta property="og:description" content="Security-first, MCP-native agentic AI systems. Deployed to the edge." />
+<meta property="og:site_name" content="VoidCat RDC" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact — VoidCat RDC" />
+<meta name="twitter:description" content="Security-first, MCP-native agentic AI systems. Deployed to the edge." />
+<meta name="twitter:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://voidcat.org/contact/" />
+
 <link rel="icon" type="image/png" href="/assets/logo.png" />
 <link rel="stylesheet" href="/styles.css" />
+
+<!-- Web Analytics -->
+<script defer data-domain="voidcat.org" src="https://plausible.io/js/script.js"></script>
+
+<style>
+  .contact-section { max-width: 640px; margin: 0 auto; }
+  .contact-form { margin-top: 32px; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text); }
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--panel);
+    border: 1px solid #1b2230;
+    border-radius: 8px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.2s ease;
+  }
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(106, 162, 255, 0.1);
+  }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--brand), var(--accent));
+    color: #0a0c10;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(106, 162, 255, 0.3); }
+  .form-submit:active { transform: translateY(0); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-status {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: none;
+  }
+  .form-status.success { background: rgba(128, 238, 192, 0.1); border: 1px solid var(--accent); color: var(--accent); display: block; }
+  .form-status.error { background: rgba(255, 100, 100, 0.1); border: 1px solid #ff6464; color: #ff6464; display: block; }
+  .contact-info { margin-top: 48px; padding-top: 32px; border-top: 1px solid #1b2230; }
+</style>
 </head><body>
 <header class="site-header"><div class="container"><a class="brand" href="/"><img src="/assets/logo.png" alt="" width="40" height="40" /><span>VoidCat RDC</span></a>
 <nav class="nav" aria-label="Primary">
@@ -19,21 +88,103 @@
       <a href="/contact/" aria-current="page">Contact</a>
     </nav></div></header>
 <main>
-<section class="section"><div class="container">
-<h1>Contact</h1>
-<p>Email: <a href="mailto:sorrowscry86@voidcat.org">sorrowscry86@voidcat.org</a> • GitHub: <a href="https://github.com/sorrowscry86" rel="noopener">@sorrowscry86</a></p>
-<form action="https://formspree.io/f/your-id" method="POST" style="margin-top:16px">
-  <div style="display:grid;gap:8px;max-width:560px">
-    <input name="name" placeholder="Your name" required />
-    <input name="email" type="email" placeholder="Your email" required />
-    <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
-    <input type="text" name="_gotcha" style="display:none" />
-    <button class="cta" type="submit">Send</button>
+<section class="section">
+  <div class="container">
+    <div class="contact-section">
+      <h1>Get in Touch</h1>
+      <p>Have questions about our products or want to discuss a partnership? We'd love to hear from you.</p>
+
+      <!--
+        FORMSPREE SETUP INSTRUCTIONS:
+        1. Sign up at https://formspree.io (free tier allows 50 submissions/month)
+        2. Create a new form and get your form ID
+        3. Replace "your-form-id" in the action URL below with your actual form ID
+        4. The form will automatically send submissions to your verified email address
+      -->
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-input" required aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">Subject</label>
+          <input type="text" id="subject" name="subject" class="form-input" required aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" class="form-textarea" required aria-required="true"></textarea>
+        </div>
+
+        <!-- Honeypot for spam protection -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button type="submit" class="form-submit">Send Message</button>
+
+        <div id="form-status" class="form-status"></div>
+      </form>
+
+      <div class="contact-info">
+        <h3>Other ways to reach us</h3>
+        <p>Email: <a href="mailto:sorrowscry86@voidcat.org">sorrowscry86@voidcat.org</a></p>
+        <p>GitHub: <a href="https://github.com/sorrowscry86" rel="noopener noreferrer">@sorrowscry86</a></p>
+      </div>
+    </div>
   </div>
-</form>
-<p style="color:var(--muted);margin-top:8px">We’ll wire the form to your provider once ready.</p>
-</div></section>
+</section>
 </main>
 <footer class="site-footer"><div class="container"><p>© <span id="year"></span> VoidCat RDC, LLC.</p></div></footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Enhanced form handling
+  const form = document.getElementById('contact-form');
+  const statusDiv = document.getElementById('form-status');
+  const submitBtn = form.querySelector('.form-submit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Clear previous status
+    statusDiv.className = 'form-status';
+    statusDiv.textContent = '';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        statusDiv.className = 'form-status success';
+        statusDiv.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      statusDiv.className = 'form-status error';
+      statusDiv.textContent = 'Oops! There was a problem sending your message. Please try again or email us directly at sorrowscry86@voidcat.org';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
 </body></html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MCP Security Baselines: OAuth 2.1 & RFC 8707 — VoidCat RDC</title>
+  <meta name="description" content="How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="MCP Security Baselines: OAuth 2.1 & RFC 8707 — VoidCat RDC" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://voidcat.org/blog/mcp-security-baselines/" />
+  <meta property="og:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+  <meta property="og:description" content="How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research." />
+  <meta property="og:site_name" content="VoidCat RDC" />
+  <meta property="article:published_time" content="2025-10-18T00:00:00Z" />
+  <meta property="article:author" content="VoidCat RDC" />
+  <meta property="article:section" content="Security" />
+  <meta property="article:tag" content="MCP" />
+  <meta property="article:tag" content="OAuth 2.1" />
+  <meta property="article:tag" content="Security" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MCP Security Baselines: OAuth 2.1 & RFC 8707 — VoidCat RDC" />
+  <meta name="twitter:description" content="How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research." />
+  <meta name="twitter:image" content="https://voidcat.org/assets/logo-optimized.webp" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://voidcat.org/blog/mcp-security-baselines/" />
+
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .article-meta { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .article-content { max-width: 800px; margin: 0 auto; }
+    .article-content h2 { margin-top: 48px; color: var(--accent); }
+    .article-content h3 { margin-top: 32px; color: var(--brand); }
+    .article-content pre { background: var(--panel); padding: 20px; border-radius: 8px; overflow-x: auto; border: 1px solid #1b2230; }
+    .article-content code { font-family: 'Courier New', monospace; font-size: 14px; }
+    .article-content ul, .article-content ol { margin: 16px 0; padding-left: 24px; }
+    .article-content li { margin: 8px 0; }
+    .article-content blockquote { border-left: 4px solid var(--brand); padding-left: 20px; margin: 24px 0; color: var(--muted); font-style: italic; }
+    .related-content { margin-top: 64px; padding-top: 32px; border-top: 1px solid #1b2230; }
+  </style>
+
+  <!-- Web Analytics -->
+  <script defer data-domain="voidcat.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" width="40" height="40" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/careers/">Careers</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="article-content">
+          <h1>MCP Security Baselines: OAuth 2.1 & RFC 8707</h1>
+          <div class="article-meta">
+            Published October 18, 2025 · 12 min read · Security
+          </div>
+
+          <p><strong>In June 2025, security researchers discovered a critical flaw in the agentic AI ecosystem:</strong> nearly 2,000 Model Context Protocol (MCP) servers were running with zero authentication. Any client could connect, execute arbitrary code, and access sensitive data.</p>
+
+          <p>This wasn't a niche vulnerability. MCP had just been adopted by OpenAI (March 2025) and Google DeepMind (April 2025) as the industry standard for connecting AI assistants to external tools and data sources. The stakes were existential.</p>
+
+          <p>At VoidCat, we'd implemented OAuth 2.1 and RFC 8707 Resource Indicators from day one. Here's why—and how you can do the same.</p>
+
+          <h2>The Problem: MCP's Authentication Gap</h2>
+
+          <p>The Model Context Protocol enables LLMs to call external tools: file system access, database queries, API calls, shell commands. Without authentication, you're giving Claude or ChatGPT root access to your infrastructure.</p>
+
+          <h3>What Went Wrong</h3>
+
+          <p>The original MCP specification (2024-11-05) focused on transport and message format, but left authentication as an "implementation detail." Most early adopters followed the reference implementation: <code>stdio</code> transport with no auth layer.</p>
+
+          <blockquote>"We assumed MCP servers would run locally in trusted environments. That assumption broke down fast." — Security researcher, June 2025 audit</blockquote>
+
+          <p>By mid-2025, MCP servers were being deployed:</p>
+          <ul>
+            <li><strong>On cloud VMs</strong> with public IPs</li>
+            <li><strong>In Docker containers</strong> exposed via HTTP</li>
+            <li><strong>Behind corporate proxies</strong> accessible to all employees</li>
+            <li><strong>In multi-tenant environments</strong> where isolation failed</li>
+          </ul>
+
+          <p>Result: 2,000+ servers with <strong>no authentication, no authorization, and no audit logging</strong>.</p>
+
+          <h2>The Solution: OAuth 2.1 + RFC 8707</h2>
+
+          <p>We chose a defense-in-depth approach:</p>
+
+          <h3>1. OAuth 2.1 for Authentication</h3>
+
+          <p>OAuth 2.1 is the modern consolidation of OAuth 2.0 best practices. Key features:</p>
+          <ul>
+            <li><strong>Token-based authentication</strong> (no passwords in MCP traffic)</li>
+            <li><strong>Short-lived access tokens</strong> (15-60 minutes)</li>
+            <li><strong>Refresh token rotation</strong> (automatic renewal)</li>
+            <li><strong>PKCE by default</strong> (prevents interception attacks)</li>
+          </ul>
+
+          <h3>2. RFC 8707 Resource Indicators</h3>
+
+          <p>RFC 8707 adds resource-specific scoping to OAuth tokens. Instead of:</p>
+          <pre><code>scope: "mcp:*"  # Full access to all tools</code></pre>
+
+          <p>You can specify:</p>
+          <pre><code>scope: "mcp:read:filesystem"
+resource: "mcp://voidcat.org/tools/filesystem"</code></pre>
+
+          <p>This enables <strong>least privilege</strong>: clients only get access to the exact tools they need.</p>
+
+          <h2>Implementation: Step-by-Step</h2>
+
+          <h3>Architecture Overview</h3>
+
+          <pre><code>┌─────────────┐      ┌──────────────────┐      ┌─────────────┐
+│ MCP Client  │─────▶│ Authorization    │◀────▶│  MCP Server │
+│ (ChatGPT)   │      │ Server (OAuth)   │      │  (Your API) │
+└─────────────┘      └──────────────────┘      └─────────────┘
+     │                                                  │
+     │  1. Request token                                │
+     │  2. Receive access_token + resource              │
+     │  3. Call MCP endpoint with token ───────────────▶│
+     │                                   4. Validate token
+     │◀─────────────────────────────────5. Execute tool│</code></pre>
+
+          <h3>Step 1: Set Up Authorization Server</h3>
+
+          <p>We use <a href="https://oauth.net/2.1/" target="_blank" rel="noopener">OAuth 2.1</a> with the authorization code flow + PKCE. Example with Node.js:</p>
+
+          <pre><code>// auth-server.js
+import { AuthorizationServer } from 'oauth2-server';
+
+const server = new AuthorizationServer({
+  model: {
+    getClient: async (clientId) => {
+      // Fetch client from database
+      return db.clients.findOne({ id: clientId });
+    },
+    saveToken: async (token, client, user) => {
+      // Store token with resource indicator
+      token.resource = 'mcp://voidcat.org/tools';
+      await db.tokens.insert(token);
+      return token;
+    },
+    getAccessToken: async (accessToken) => {
+      return db.tokens.findOne({ accessToken });
+    }
+  }
+});
+
+app.post('/oauth/token', async (req, res) => {
+  const request = new Request(req);
+  const response = new Response(res);
+
+  await server.token(request, response);
+  res.json(response.body);
+});</code></pre>
+
+          <h3>Step 2: MCP Server Token Validation</h3>
+
+          <p>Every MCP request must validate the OAuth token:</p>
+
+          <pre><code>// mcp-server.js
+async function validateMCPRequest(req) {
+  const authHeader = req.headers['authorization'];
+  if (!authHeader?.startsWith('Bearer ')) {
+    throw new Error('Missing or invalid authorization header');
+  }
+
+  const token = authHeader.slice(7);
+
+  // Validate token with authorization server
+  const tokenData = await authServer.introspect(token);
+
+  if (!tokenData.active) {
+    throw new Error('Token expired or revoked');
+  }
+
+  // Check resource indicator (RFC 8707)
+  if (tokenData.resource !== 'mcp://voidcat.org/tools') {
+    throw new Error('Invalid resource scope');
+  }
+
+  // Check tool-specific scope
+  const requestedTool = req.body.method; // e.g., "filesystem/read"
+  if (!tokenData.scope.includes(`mcp:${requestedTool}`)) {
+    throw new Error('Insufficient permissions');
+  }
+
+  return tokenData;
+}</code></pre>
+
+          <h3>Step 3: Client Integration</h3>
+
+          <p>MCP clients must obtain tokens before making requests:</p>
+
+          <pre><code>// mcp-client.js
+import { MCPClient } from '@modelcontextprotocol/sdk';
+
+async function connectWithAuth() {
+  // 1. Get OAuth token
+  const tokenResponse = await fetch('https://auth.voidcat.org/oauth/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'authorization_code',
+      code: authCode,
+      client_id: 'mcp-client-123',
+      redirect_uri: 'http://localhost:3000/callback',
+      code_verifier: pkceVerifier,
+      resource: 'mcp://voidcat.org/tools' // RFC 8707
+    })
+  });
+
+  const { access_token } = await tokenResponse.json();
+
+  // 2. Connect MCP client with token
+  const client = new MCPClient({
+    url: 'https://mcp.voidcat.org',
+    auth: {
+      type: 'bearer',
+      token: access_token
+    }
+  });
+
+  return client;
+}</code></pre>
+
+          <h2>Advanced: Scope Hierarchies</h2>
+
+          <p>We implement fine-grained scopes for different tool categories:</p>
+
+          <pre><code>mcp:read:filesystem      # Read-only file access
+mcp:write:filesystem     # Write file access
+mcp:execute:shell        # Shell command execution (high risk)
+mcp:read:database        # Database read queries
+mcp:write:database       # Database write queries
+mcp:admin:*              # Full administrative access</code></pre>
+
+          <p>Clients request minimum necessary scopes. Our authorization server grants based on client trust level:</p>
+
+          <pre><code>// Scope assignment logic
+function assignScopes(client, requestedScopes) {
+  const maxScopes = {
+    'trusted-internal': ['mcp:*'],
+    'third-party-verified': ['mcp:read:*', 'mcp:write:filesystem'],
+    'public-client': ['mcp:read:filesystem']
+  };
+
+  const allowedScopes = maxScopes[client.trustLevel] || [];
+  return requestedScopes.filter(scope =>
+    allowedScopes.some(allowed =>
+      scope.startsWith(allowed.replace('*', ''))
+    )
+  );
+}</code></pre>
+
+          <h2>Audit Logging & Monitoring</h2>
+
+          <p>Every MCP tool invocation is logged with:</p>
+          <ul>
+            <li><strong>Client ID</strong> (who made the request)</li>
+            <li><strong>Tool name</strong> (what they accessed)</li>
+            <li><strong>Token scope</strong> (what permissions they had)</li>
+            <li><strong>Timestamp</strong> (when it happened)</li>
+            <li><strong>Resource indicator</strong> (where they accessed)</li>
+            <li><strong>Result status</strong> (success/failure/error)</li>
+          </ul>
+
+          <pre><code>// Audit logging
+async function auditLog(request, tokenData, result) {
+  await db.audit.insert({
+    timestamp: new Date(),
+    clientId: tokenData.client_id,
+    userId: tokenData.user_id,
+    tool: request.method,
+    scope: tokenData.scope,
+    resource: tokenData.resource,
+    status: result.status,
+    error: result.error || null,
+    ipAddress: request.ip
+  });
+}</code></pre>
+
+          <h2>Performance Considerations</h2>
+
+          <p>Token validation adds latency. Our optimizations:</p>
+
+          <h3>1. Token Caching</h3>
+          <pre><code>// Cache validated tokens for 5 minutes
+const tokenCache = new Map();
+
+async function validateToken(token) {
+  const cached = tokenCache.get(token);
+  if (cached && Date.now() < cached.expiry) {
+    return cached.data;
+  }
+
+  const data = await authServer.introspect(token);
+  tokenCache.set(token, {
+    data,
+    expiry: Date.now() + (5 * 60 * 1000)
+  });
+
+  return data;
+}</code></pre>
+
+          <h3>2. JWT Tokens (Self-Contained)</h3>
+          <p>Instead of remote validation, use JWT tokens that can be verified locally:</p>
+          <pre><code>import jwt from 'jsonwebtoken';
+
+function validateJWT(token) {
+  try {
+    const decoded = jwt.verify(token, publicKey, {
+      algorithms: ['RS256'],
+      issuer: 'https://auth.voidcat.org'
+    });
+
+    return decoded;
+  } catch (err) {
+    throw new Error('Invalid token');
+  }
+}</code></pre>
+
+          <p><strong>Performance impact:</strong> JWT validation: <strong>&lt;1ms</strong> vs remote introspection: <strong>50-100ms</strong></p>
+
+          <h2>Migration Strategy</h2>
+
+          <p>If you're running MCP servers without auth today:</p>
+
+          <h3>Phase 1: Add Auth (Week 1)</h3>
+          <ul>
+            <li>Deploy authorization server</li>
+            <li>Update MCP server to require Bearer tokens</li>
+            <li>Provide migration grace period (30 days)</li>
+          </ul>
+
+          <h3>Phase 2: Enforce Scopes (Week 2-4)</h3>
+          <ul>
+            <li>Implement RFC 8707 resource indicators</li>
+            <li>Define scope hierarchy</li>
+            <li>Migrate clients to request specific scopes</li>
+          </ul>
+
+          <h3>Phase 3: Audit & Harden (Ongoing)</h3>
+          <ul>
+            <li>Review audit logs weekly</li>
+            <li>Rotate tokens on suspicious activity</li>
+            <li>Implement rate limiting per client</li>
+          </ul>
+
+          <h2>Lessons Learned</h2>
+
+          <blockquote>
+            <strong>"Security is not something you add later. It's foundational."</strong>
+          </blockquote>
+
+          <p>Key takeaways from our implementation:</p>
+
+          <ol>
+            <li><strong>Start with OAuth 2.1</strong> — Don't reinvent authentication</li>
+            <li><strong>Use RFC 8707</strong> — Resource-specific tokens prevent lateral movement</li>
+            <li><strong>Log everything</strong> — You can't debug what you can't see</li>
+            <li><strong>Principle of least privilege</strong> — Grant minimum necessary scopes</li>
+            <li><strong>Rotate credentials</strong> — Short-lived tokens limit exposure</li>
+          </ol>
+
+          <h2>Looking Forward</h2>
+
+          <p>MCP security is evolving rapidly. Upcoming standards we're tracking:</p>
+          <ul>
+            <li><strong>MCP Authentication Extension (draft)</strong> — Official spec for OAuth integration</li>
+            <li><strong>Tool Sandboxing</strong> — Isolate tool execution environments</li>
+            <li><strong>Rate Limiting</strong> — Prevent abuse and DDoS</li>
+            <li><strong>mTLS Support</strong> — Certificate-based authentication for service-to-service</li>
+          </ul>
+
+          <h2>Resources</h2>
+
+          <ul>
+            <li><a href="https://oauth.net/2.1/" target="_blank" rel="noopener">OAuth 2.1 Specification</a></li>
+            <li><a href="https://datatracker.ietf.org/doc/html/rfc8707" target="_blank" rel="noopener">RFC 8707: Resource Indicators for OAuth 2.0</a></li>
+            <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">Model Context Protocol Documentation</a></li>
+            <li><a href="https://github.com/voidcat" target="_blank" rel="noopener">VoidCat Open Source MCP Examples</a> (coming soon)</li>
+          </ul>
+
+          <div class="related-content">
+            <h3>Related Content</h3>
+            <ul>
+              <li><a href="/blog/context-os-tool-governance/">Context OS: Intelligent Tool Governance at Scale</a></li>
+              <li><a href="/products/reasoning-core.html">VoidCat Reasoning Core (VRE)</a> — Our MCP-native reasoning engine</li>
+              <li><a href="/research/">Research: OAuth 2.1 for MCP Whitepaper</a> (coming soon)</li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 48px; padding-top: 32px; border-top: 1px solid #1b2230; color: var(--muted); font-size: 14px;">
+            <strong>About VoidCat RDC:</strong> We build MCP-native agentic AI systems with security-first design. Learn more at <a href="/">voidcat.org</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> VoidCat RDC, LLC. All rights reserved. Built on MCP, secured by OAuth 2.1, deployed at the edge.</p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/company/">Company Overview</a> • <a href="/careers/">Careers</a> • <a href="/investors/">Investor Materials</a> • <a href="/research/">Research & IP</a> • <a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
