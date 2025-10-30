@@ -88,6 +88,39 @@
       </div>
     </section>
 
+    <!-- Latest Podcast Episode Promo Band -->
+    <section id="latest-podcast" class="promo-band" aria-label="Latest Podcast Episode">
+      <div class="container">
+        <div id="latest-podcast-content">
+          <div class="promo-loading">Loading latest episode…</div>
+        </div>
+      </div>
+      <script>
+      fetch('/assets/podcasts/manifest.json')
+        .then(r => r.json())
+        .then(data => {
+          const el = document.getElementById('latest-podcast-content');
+          if (!data.episodes || !data.episodes.length) {
+            el.innerHTML = `<div class="promo-empty">🎧 <strong>Latest Podcast Episode:</strong> New episodes coming soon!</div>`;
+            return;
+          }
+          const ep = data.episodes[0];
+          el.innerHTML = `
+            <div class="promo-episode">
+              <div class="promo-ep-meta">🎧 Latest Podcast Episode</div>
+              <h3 class="promo-ep-title">${ep.title ? ep.title : 'Untitled Episode'}</h3>
+              <p class="promo-ep-desc">${ep.description ? ep.description : ''}</p>
+              ${ep.audio ? `<audio controls preload="none" src="${ep.audio}" class="promo-ep-audio" aria-label="Play latest episode"></audio>` : ''}
+              <a class="cta promo-ep-cta" href="/podcasts/">Listen now</a>
+            </div>
+          `;
+        })
+        .catch(() => {
+          document.getElementById('latest-podcast-content').innerHTML = `<div class="promo-empty">🎧 <strong>Latest Podcast Episode:</strong> Unable to load episodes.</div>`;
+        });
+      </script>
+    </section>
+
     <section class="section" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(88, 86, 214, 0.08) 100%); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
       <div class="container">
         <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 20px; align-items: center;">
