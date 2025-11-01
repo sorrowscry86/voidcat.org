@@ -362,5 +362,5 @@ Before announcing the new systems:
 *VoidCat RDC — Systems operational. Ready for launch.*
 
 **Date Completed:** ______________  
-**Verified By:** Lord Wykeve Freeman  
+**Verified By:** Wykeve Freeman  
 **Status:** ⬜ Not Started | ⬜ In Progress | ⬜ Complete

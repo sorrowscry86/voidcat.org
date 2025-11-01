@@ -338,7 +338,7 @@
 ## 📞 Contact & Resources
 
 ### Key Personnel
-- **Lord Wykeve Freeman:** Founder, Product Lead
+- **Wykeve Freeman:** Founder, Product Lead
 - **Beatrice (VoidCat RDC):** Strategic Authority, Quality Oversight
 - **Email:** sorrowscry86@voidcat.org
 - **GitHub:** [@sorrowscry86](https://github.com/sorrowscry86)
@@ -361,7 +361,7 @@
 
 | Date | Version | Changes | Author |
 |------|---------|---------|--------|
-| Oct 24, 2025 | 1.0 | Initial living document creation | Lord Wykeve Freeman |
+| Oct 24, 2025 | 1.0 | Initial living document creation | Wykeve Freeman |
 
 ---
 
@@ -375,7 +375,7 @@
 - **Quarterly:** Strategic priorities, risk assessment, market analysis
 - **As-Needed:** Major milestones, pivot decisions, fundraising events
 
-**Update Responsibility:** Lord Wykeve Freeman (Product Lead)  
+**Update Responsibility:** Wykeve Freeman (Product Lead)  
 **Review Authority:** Beatrice (Strategic Oversight)  
 **Distribution:** Internal team, investors, key partners
 
