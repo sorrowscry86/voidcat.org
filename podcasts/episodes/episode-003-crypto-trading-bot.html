@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Episode 3: Zero-Cost Crypto Trading Bot with LLM — VoidCat RDC Podcast</title>
+  <meta name="description" content="Build an automated crypto trading bot using Freqtrade and LLM-powered AI co-processors. Complete blueprint from setup to deployment." />
+  <meta name="keywords" content="Trading Bot, LLM, Freqtrade, Crypto, AI Automation, Algorithmic Trading" />
+  <meta property="og:title" content="Episode 3: Zero-Cost Crypto Trading Bot with LLM — VoidCat RDC Podcast" />
+  <meta property="og:description" content="Build an automated crypto trading bot using Freqtrade and LLM-powered AI co-processors. Complete blueprint from setup to deployment." />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2025-10-29" />
+  <meta property="article:author" content="Wykeve Freeman" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .podcast-player { background: var(--panel); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .podcast-controls { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .podcast-progress { width: 100%; }
+    .time { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/podcasts/">Podcasts</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <article class="section">
+      <div class="container" style="max-width: 800px;">
+        <div style="margin-bottom: 16px;">
+          <a href="/podcasts/" style="color: var(--muted); text-decoration: none;">← Back to Podcasts</a>
+        </div>
+
+        <header style="margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--panel);">
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px; color: var(--muted); font-size: 14px;">
+            <span style="background: var(--brand); color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">Episode 3</span>
+            <time datetime="2025-10-29">October 29, 2025</time>
+            <span>•</span>
+            <span>32:18</span>
+            <span>•</span>
+            <span>Wykeve Freeman</span>
+          </div>
+          <h1 style="margin: 0; font-size: 2.5rem; line-height: 1.2;">Zero-Cost Crypto Trading Bot with LLM</h1>
+        </header>
+
+        <div class="podcast-player" role="region" aria-label="Podcast player">
+          <h2 style="margin: 0 0 8px 0; font-size: 1.2rem;">Listen Now</h2>
+          <p style="color: var(--muted); margin: 0 0 16px 0;">Build an automated crypto trading bot using Freqtrade and LLM-powered AI co-processors. Complete blueprint from setup to deployment.</p>
+          <div class="podcast-controls">
+            <button id="play-btn" aria-label="Play" style="background: var(--brand); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">▶ Play</button>
+            <input id="seek" class="podcast-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+            <span class="time"><span id="current">0:00</span> / <span id="duration">0:00</span></span>
+          </div>
+          <audio id="audio" src="/assets/podcasts/episode-003-crypto-trading-bot.mp3" preload="metadata"></audio>
+        </div>
+
+        <div class="prose">
+          <h2>Episode Summary</h2>
+          <p>Automated trading meets LLM intelligence. In this technical deep dive, we build a complete zero-cost crypto trading bot using Freqtrade—an open-source algorithmic trading framework—enhanced with LLM-powered AI co-processors for market analysis and strategy optimization.</p>
+          
+          <p>This isn't theory. This is a production-grade system you can deploy today.</p>
+
+          <h3>What We Cover</h3>
+          <ul>
+            <li><strong>Freqtrade fundamentals:</strong> Installation, configuration, and core trading strategies</li>
+            <li><strong>LLM integration:</strong> Using language models as real-time market analysis co-processors</li>
+            <li><strong>Strategy development:</strong> Building and backtesting custom trading algorithms</li>
+            <li><strong>Risk management:</strong> Stop-loss, position sizing, and portfolio optimization</li>
+            <li><strong>Deployment patterns:</strong> Running on free-tier cloud infrastructure (Oracle, Render, Railway)</li>
+            <li><strong>Monitoring & observability:</strong> Real-time alerts, performance tracking, and automated reporting</li>
+          </ul>
+
+          <h2>Architecture Overview</h2>
+          <p>The bot architecture consists of three main components:</p>
+          <ol>
+            <li><strong>Freqtrade Core:</strong> Handles exchange connectivity, order execution, and strategy orchestration</li>
+            <li><strong>LLM Co-Processor:</strong> Analyzes market sentiment, news, and on-chain data to inform trading decisions</li>
+            <li><strong>Monitoring Layer:</strong> Tracks performance metrics, manages alerts, and provides audit trails</li>
+          </ol>
+
+          <h2>Zero-Cost Infrastructure</h2>
+          <p>This entire system runs on free-tier services:</p>
+          <ul>
+            <li><strong>Oracle Cloud (Always Free):</strong> ARM-based compute instance for the Freqtrade bot</li>
+            <li><strong>Render/Railway (Free tier):</strong> LLM API endpoints and monitoring dashboard</li>
+            <li><strong>GitHub Actions:</strong> Automated backtesting and strategy validation</li>
+            <li><strong>Telegram/Discord:</strong> Real-time trade notifications and alerts</li>
+          </ul>
+
+          <h2>Key Topics</h2>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Trading Bot</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">LLM</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Freqtrade</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Crypto</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">AI Automation</span>
+          </div>
+
+          <h2>Resources & Links</h2>
+          <ul>
+            <li><a href="https://www.freqtrade.io">Freqtrade Official Documentation</a></li>
+            <li><a href="https://github.com/freqtrade/freqtrade">Freqtrade GitHub Repository</a></li>
+            <li><a href="https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm">Oracle Cloud Always Free Resources</a></li>
+            <li><a href="/products/reasoning-core.html">VoidCat Reasoning Core</a> (for LLM integration patterns)</li>
+          </ul>
+
+          <h2>Important Disclaimers</h2>
+          <p style="background: var(--panel); padding: 16px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <strong>⚠️ Risk Warning:</strong> Crypto trading carries significant financial risk. This episode is for educational purposes only and does not constitute financial advice. Always do your own research, never invest more than you can afford to lose, and consider consulting with a financial advisor before engaging in automated trading.
+          </p>
+
+          <h2>Code & Configuration</h2>
+          <p>All configuration files, strategy templates, and deployment scripts referenced in this episode will be published to the VoidCat RDC GitHub. Check the <a href="/projects/">Projects page</a> for updates.</p>
+
+          <h2>About the Host</h2>
+          <p>Wykeve Freeman is the founder of VoidCat RDC, building agentic AI systems and automation platforms. With a background in algorithmic trading and AI systems engineering, Wykeve focuses on practical, production-grade implementations. Connect on <a href="https://github.com/sorrowscry86">GitHub</a> or via <a href="mailto:sorrowscry86@voidcat.org">email</a>.</p>
+        </div>
+
+        <footer style="margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="cta" href="/podcasts/">All Episodes</a>
+          <a class="cta" href="/contact/">Get in Touch</a>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>© <span id="year"></span> VoidCat RDC, LLC. Deliberate Innovation. Human Augmentation.</strong></p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile navigation
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Podcast player
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('play-btn');
+    const seek = document.getElementById('seek');
+    const currentEl = document.getElementById('current');
+    const durationEl = document.getElementById('duration');
+    let seeking = false;
+
+    function fmt(t) {
+      const s = Math.floor(t % 60).toString().padStart(2,'0');
+      const m = Math.floor(t / 60).toString();
+      return `${m}:${s}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) { audio.play(); } else { audio.pause(); }
+    });
+    
+    audio.addEventListener('play', () => { 
+      playBtn.innerHTML = '⏸ Pause'; 
+      playBtn.setAttribute('aria-label','Pause'); 
+    });
+    
+    audio.addEventListener('pause', () => { 
+      playBtn.innerHTML = '▶ Play'; 
+      playBtn.setAttribute('aria-label','Play'); 
+    });
+    
+    audio.addEventListener('loadedmetadata', () => { 
+      durationEl.textContent = fmt(audio.duration || 0); 
+    });
+    
+    audio.addEventListener('timeupdate', () => {
+      if (seeking) return;
+      currentEl.textContent = fmt(audio.currentTime || 0);
+      const p = (audio.currentTime / (audio.duration || 1)) * 100;
+      seek.value = String(p);
+    });
+    
+    seek.addEventListener('input', () => { seeking = true; });
+    
+    seek.addEventListener('change', () => {
+      const p = Number(seek.value) / 100;
+      audio.currentTime = p * (audio.duration || 0);
+      seeking = false;
+    });
+  </script>
+</body>
+</html>

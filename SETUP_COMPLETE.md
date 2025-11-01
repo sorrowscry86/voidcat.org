@@ -151,7 +151,7 @@ cp _template.md my-first-article.md
 ---
 title: "My First Article Title"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Engineering"
 tags: ["MCP", "Tutorial"]
 excerpt: "A brief summary of what this article covers."

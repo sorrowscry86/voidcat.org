@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Blog generation system for VoidCat.org",
   "scripts": {
-    "generate": "node .github/scripts/generate-blog-index.js"
+    "generate": "node .github/scripts/generate-blog-index.js",
+    "generate:blog": "node .github/scripts/generate-blog-index.js",
+    "generate:podcasts": "node .github/scripts/generate-podcast-manifest.js",
+    "publish": "npm run generate:blog && npm run generate:podcasts",
+    "publish:blog": "npm run generate:blog",
+    "publish:podcasts": "npm run generate:podcasts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

@@ -1,7 +1,7 @@
 ---
 title: "Introducing VoidCat RDC's Automated Publishing System"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Engineering"
 tags: ["Publishing", "Automation", "GitHub Actions", "Documentation"]
 excerpt: "How we built a fully automated blog publishing pipeline that converts markdown to live website content in under 3 minutes, with zero manual HTML editing."
@@ -12,7 +12,7 @@ status: "published"
 # Introducing VoidCat RDC's Automated Publishing System
 
 **Published:** October 24, 2025  
-**Author:** Lord Wykeve Freeman  
+**Author:** Wykeve Freeman  
 **Reading Time:** ~6 minutes
 
 ---
@@ -110,7 +110,7 @@ Every article includes structured metadata:
 ---
 title: "Article Title"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Engineering"
 tags: ["Tag1", "Tag2"]
 excerpt: "Brief summary for listings."
@@ -345,7 +345,7 @@ VoidCat RDC now publishes content in **2-3 minutes** instead of 30-60 minutes. Z
 
 ## About the Author
 
-Lord Wykeve Freeman is the founder of VoidCat RDC, building MCP-native agentic AI systems. Connect on [GitHub](https://github.com/sorrowscry86) or via [email](mailto:sorrowscry86@voidcat.org).
+Wykeve Freeman is the founder of VoidCat RDC, building MCP-native agentic AI systems. Connect on [GitHub](https://github.com/sorrowscry86) or via [email](mailto:sorrowscry86@voidcat.org).
 
 ---
 

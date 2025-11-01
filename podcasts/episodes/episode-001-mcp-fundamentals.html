@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Episode 1: MCP Fundamentals — VoidCat RDC Podcast</title>
+  <meta name="description" content="Deep dive into Model Context Protocol architecture, security patterns, and why it matters for agentic AI." />
+  <meta name="keywords" content="MCP, Model Context Protocol, Architecture, Agentic AI, Protocol Design" />
+  <meta property="og:title" content="Episode 1: MCP Fundamentals — VoidCat RDC Podcast" />
+  <meta property="og:description" content="Deep dive into Model Context Protocol architecture, security patterns, and why it matters for agentic AI." />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2025-10-31" />
+  <meta property="article:author" content="Wykeve Freeman" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .podcast-player { background: var(--panel); border-radius: 12px; padding: 24px; margin: 32px 0; }
+    .podcast-controls { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .podcast-progress { width: 100%; }
+    .time { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="VoidCat RDC logo" />
+        <span>VoidCat RDC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/solutions/">Solutions</a>
+        <a href="/research/">Research</a>
+        <a href="/podcasts/">Podcasts</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/company/">Company</a>
+        <a href="/investors/">Investors</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <article class="section">
+      <div class="container" style="max-width: 800px;">
+        <div style="margin-bottom: 16px;">
+          <a href="/podcasts/" style="color: var(--muted); text-decoration: none;">← Back to Podcasts</a>
+        </div>
+
+        <header style="margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--panel);">
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px; color: var(--muted); font-size: 14px;">
+            <span style="background: var(--brand); color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">Episode 1</span>
+            <time datetime="2025-10-31">October 31, 2025</time>
+            <span>•</span>
+            <span>24:15</span>
+            <span>•</span>
+            <span>Wykeve Freeman</span>
+          </div>
+          <h1 style="margin: 0; font-size: 2.5rem; line-height: 1.2;">MCP Fundamentals</h1>
+        </header>
+
+        <div class="podcast-player" role="region" aria-label="Podcast player">
+          <h2 style="margin: 0 0 8px 0; font-size: 1.2rem;">Listen Now</h2>
+          <p style="color: var(--muted); margin: 0 0 16px 0;">Deep dive into Model Context Protocol architecture, security patterns, and why it matters for agentic AI.</p>
+          <div class="podcast-controls">
+            <button id="play-btn" aria-label="Play" style="background: var(--brand); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">▶ Play</button>
+            <input id="seek" class="podcast-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+            <span class="time"><span id="current">0:00</span> / <span id="duration">0:00</span></span>
+          </div>
+          <audio id="audio" src="/assets/podcasts/episode-001-mcp-fundamentals.mp3" preload="metadata"></audio>
+        </div>
+
+        <div class="prose">
+          <h2>Episode Summary</h2>
+          <p>The Model Context Protocol (MCP) is rapidly becoming the standard for building agentic AI systems. In this episode, we explore:</p>
+          <ul>
+            <li><strong>What is MCP?</strong> The protocol architecture and its design philosophy</li>
+            <li><strong>Why MCP matters:</strong> How it enables secure, observable, and governable AI agents</li>
+            <li><strong>Security patterns:</strong> Authentication, authorization, and audit trails in MCP implementations</li>
+            <li><strong>Real-world adoption:</strong> How OpenAI, Google DeepMind, and other leaders are integrating MCP</li>
+            <li><strong>Building your first MCP server:</strong> Practical guidance and common patterns</li>
+          </ul>
+
+          <h2>Key Topics</h2>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">MCP</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Protocol</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Architecture</span>
+            <span style="background: var(--panel); padding: 6px 14px; border-radius: 4px; font-size: 13px;">Agentic AI</span>
+          </div>
+
+          <h2>Resources Mentioned</h2>
+          <ul>
+            <li><a href="https://modelcontextprotocol.io">Official MCP Documentation</a></li>
+            <li><a href="/blog/posts/test-mcp-oauth-implementation.html">VoidCat RDC: MCP Security Implementation</a></li>
+            <li><a href="/products/reasoning-core.html">VoidCat Reasoning Core</a> (MCP-native platform)</li>
+          </ul>
+
+          <h2>About the Host</h2>
+          <p>Wykeve Freeman is the founder of VoidCat RDC, building MCP-native agentic AI systems with a focus on security, observability, and production-grade deployment. Connect on <a href="https://github.com/sorrowscry86">GitHub</a> or via <a href="mailto:sorrowscry86@voidcat.org">email</a>.</p>
+        </div>
+
+        <footer style="margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="cta" href="/podcasts/">All Episodes</a>
+          <a class="cta" href="/contact/">Get in Touch</a>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>© <span id="year"></span> VoidCat RDC, LLC. Deliberate Innovation. Human Augmentation.</strong></p>
+      <p style="margin-top: 8px; font-size: 14px;"><a href="/legal/terms.html">Terms of Use</a> • <a href="/legal/privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile navigation
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Podcast player
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('play-btn');
+    const seek = document.getElementById('seek');
+    const currentEl = document.getElementById('current');
+    const durationEl = document.getElementById('duration');
+    let seeking = false;
+
+    function fmt(t) {
+      const s = Math.floor(t % 60).toString().padStart(2,'0');
+      const m = Math.floor(t / 60).toString();
+      return `${m}:${s}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) { audio.play(); } else { audio.pause(); }
+    });
+    
+    audio.addEventListener('play', () => { 
+      playBtn.innerHTML = '⏸ Pause'; 
+      playBtn.setAttribute('aria-label','Pause'); 
+    });
+    
+    audio.addEventListener('pause', () => { 
+      playBtn.innerHTML = '▶ Play'; 
+      playBtn.setAttribute('aria-label','Play'); 
+    });
+    
+    audio.addEventListener('loadedmetadata', () => { 
+      durationEl.textContent = fmt(audio.duration || 0); 
+    });
+    
+    audio.addEventListener('timeupdate', () => {
+      if (seeking) return;
+      currentEl.textContent = fmt(audio.currentTime || 0);
+      const p = (audio.currentTime / (audio.duration || 1)) * 100;
+      seek.value = String(p);
+    });
+    
+    seek.addEventListener('input', () => { seeking = true; });
+    
+    seek.addEventListener('change', () => {
+      const p = Number(seek.value) / 100;
+      audio.currentTime = p * (audio.duration || 0);
+      seeking = false;
+    });
+  </script>
+</body>
+</html>

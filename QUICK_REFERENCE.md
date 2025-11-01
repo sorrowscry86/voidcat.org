@@ -54,7 +54,7 @@ git push origin main
 ---
 title: "Your Article Title"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Engineering"  # Options: Architecture, Security, Performance, Engineering, Research
 tags: ["MCP", "Tutorial"]
 excerpt: "1-2 sentence summary."

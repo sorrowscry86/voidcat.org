@@ -1,7 +1,7 @@
 ---
 title: "Your Article Title"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Architecture" # Options: Architecture, Security, Performance, Engineering, Research
 tags: ["MCP", "Security", "Edge Computing"]
 excerpt: "A brief 1-2 sentence summary that appears in listings."
@@ -12,7 +12,7 @@ status: "draft" # Options: draft, published
 # Your Article Title
 
 **Published:** October 24, 2025  
-**Author:** Lord Wykeve Freeman  
+**Author:** Wykeve Freeman  
 **Reading Time:** ~8 minutes
 
 ---
@@ -102,7 +102,7 @@ Summarize key takeaways. What should readers remember?
 
 ## About the Author
 
-Lord Wykeve Freeman is the founder of VoidCat RDC, building MCP-native agentic AI systems. Connect on [GitHub](https://github.com/sorrowscry86) or via [email](mailto:sorrowscry86@voidcat.org).
+Wykeve Freeman is the founder of VoidCat RDC, building MCP-native agentic AI systems. Connect on [GitHub](https://github.com/sorrowscry86) or via [email](mailto:sorrowscry86@voidcat.org).
 
 ---
 

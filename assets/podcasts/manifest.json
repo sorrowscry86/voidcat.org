@@ -1,3 +1,31 @@
 {
-  "episodes": []
+  "episodes": [
+    {
+      "title": "Episode 1: MCP Fundamentals",
+      "description": "Deep dive into Model Context Protocol architecture, security patterns, and why it matters for agentic AI.",
+      "date": "2025-10-31",
+      "src": "/assets/podcasts/episode-001-mcp-fundamentals.mp3",
+      "duration": "24:15",
+      "author": "Wykeve Freeman",
+      "tags": ["MCP", "Protocol", "Architecture", "Agentic AI"]
+    },
+    {
+      "title": "Episode 2: OAuth 2.1 for MCP Servers",
+      "description": "Security implementation patterns. How to secure your MCP server with OAuth 2.1 + RFC 8707 resource indicators.",
+      "date": "2025-10-30",
+      "src": "/assets/podcasts/episode-002-oauth-mcp.mp3",
+      "duration": "18:42",
+      "author": "Wykeve Freeman",
+      "tags": ["Security", "OAuth 2.1", "RFC 8707", "MCP Servers"]
+    },
+    {
+      "title": "Episode 3: Zero-Cost Crypto Trading Bot with LLM",
+      "description": "Build an automated crypto trading bot using Freqtrade and LLM-powered AI co-processors. Complete blueprint from setup to deployment.",
+      "date": "2025-10-29",
+      "src": "/assets/podcasts/episode-003-crypto-trading-bot.mp3",
+      "duration": "32:18",
+      "author": "Wykeve Freeman",
+      "tags": ["Trading Bot", "LLM", "Freqtrade", "Crypto", "AI Automation"]
+    }
+  ]
 }

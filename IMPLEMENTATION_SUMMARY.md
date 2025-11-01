@@ -328,7 +328,7 @@ npm audit fix
 
 ---
 
-## Action Items for Lord Wykeve Freeman
+## Action Items for Wykeve Freeman
 
 ### Today
 - [ ] Run `npm install` to install dependencies

@@ -78,7 +78,7 @@ Every post **must** include YAML frontmatter at the top:
 ---
 title: "Implementing OAuth 2.1 for Model Context Protocol"
 date: 2025-10-24
-author: "Lord Wykeve Freeman"
+author: "Wykeve Freeman"
 category: "Security"
 tags: ["MCP", "OAuth 2.1", "Security", "Authentication"]
 excerpt: "A comprehensive guide to implementing OAuth 2.1 authentication for MCP servers, addressing vulnerabilities identified in June 2025 security research."
@@ -150,7 +150,7 @@ Wait 2-3 minutes for GitHub Actions to complete, then visit:
 |-------|------|-------------|---------|
 | `title` | String | Article title (shown in listings and page header) | `"OAuth 2.1 for MCP"` |
 | `date` | Date | Publication date (YYYY-MM-DD) | `2025-10-24` |
-| `author` | String | Author name | `"Lord Wykeve Freeman"` |
+| `author` | String | Author name | `"Wykeve Freeman"` |
 | `category` | String | Primary category (see options below) | `"Security"` |
 | `excerpt` | String | 1-2 sentence summary for listings | `"A guide to..."` |
 | `status` | String | Publication status: `draft` or `published` | `"published"` |
@@ -562,7 +562,7 @@ git push origin main
 
 **Content Review:**
 - **Beatrice (Strategic Oversight):** Final approval for major announcements
-- **Lord Wykeve Freeman:** Technical content, research, engineering
+- **Wykeve Freeman:** Technical content, research, engineering
 
 ---
 

@@ -105,13 +105,14 @@
             return;
           }
           const ep = data.episodes[0];
+          const epUrl = ep.audio ? ep.audio.replace('/assets/podcasts/', '').replace('.mp3', '') : '';
           el.innerHTML = `
             <div class="promo-episode">
               <div class="promo-ep-meta">🎧 Latest Podcast Episode</div>
               <h3 class="promo-ep-title">${ep.title ? ep.title : 'Untitled Episode'}</h3>
               <p class="promo-ep-desc">${ep.description ? ep.description : ''}</p>
-              ${ep.audio ? `<audio controls preload="none" src="${ep.audio}" class="promo-ep-audio" aria-label="Play latest episode"></audio>` : ''}
-              <a class="cta promo-ep-cta" href="/podcasts/">Listen now</a>
+              ${ep.audio ? `<audio controls preload="metadata" src="${ep.audio}" style="width: 100%; max-width: 600px; margin: 16px 0;" aria-label="Play latest episode"></audio>` : ''}
+              <a class="cta promo-ep-cta" href="/podcasts/episodes/${epUrl}.html">Full show notes →</a>
             </div>
           `;
         })
@@ -404,31 +405,68 @@
       </div>
     </section>
 
-    <section id="blog" class="section">
+    <section id="podcasts-section" class="section">
       <div class="container">
-        <h2>Latest from VoidCat</h2>
-        <p>Technical insights, research updates, and engineering breakthroughs. Stay current with our evolving platform.</p>
+        <h2>🎙️ Latest Podcast Episodes</h2>
+        <p>Short, practical episodes on agentic AI, MCP implementation, and edge engineering. Deep technical content, zero fluff.</p>
         
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
           <article class="blog-card">
-            <div class="blog-card-meta">October 18, 2025</div>
-            <h3>MCP Security Baselines: OAuth 2.1 & RFC 8707</h3>
-            <p>How we implemented industry-leading security standards for Model Context Protocol integration, addressing vulnerabilities identified in June 2025 security research.</p>
-            <a href="/blog/mcp-security-baselines/">Read more →</a>
+            <div class="blog-card-meta">🎧 24:15 • October 29, 2025</div>
+            <h3>MCP Fundamentals: The Protocol That Changed AI</h3>
+            <p>Deep dive into Model Context Protocol architecture, why OpenAI and Google adopted it, and how it solves the N×M integration problem for agentic AI systems.</p>
+            <audio controls preload="none" src="/assets/podcasts/episode-001-mcp-fundamentals.mp3" style="width: 100%; margin: 12px 0;"></audio>
+            <a href="/podcasts/episodes/episode-001-mcp-fundamentals.html">Full show notes →</a>
           </article>
 
           <article class="blog-card">
-            <div class="blog-card-meta">October 12, 2025</div>
-            <h3>Context OS: Intelligent Tool Governance at Scale</h3>
-            <p>Deep dive into our reasoning architecture—how intelligent context management and tool selection drives agent performance beyond raw model size.</p>
-            <a href="/blog/context-os-tool-governance/">Read more →</a>
+            <div class="blog-card-meta">🎧 18:42 • October 29, 2025</div>
+            <h3>OAuth 2.1 for MCP Servers: Security Implementation</h3>
+            <p>Implementing OAuth 2.1 and RFC 8707 for secure MCP server authentication, addressing the security vulnerabilities discovered in June 2025 research.</p>
+            <audio controls preload="none" src="/assets/podcasts/episode-002-oauth-mcp.mp3" style="width: 100%; margin: 12px 0;"></audio>
+            <a href="/podcasts/episodes/episode-002-oauth-mcp.html">Full show notes →</a>
           </article>
 
           <article class="blog-card">
-            <div class="blog-card-meta">October 5, 2025</div>
-            <h3>Edge Reasoning: Deploying Agents on Cloudflare Workers</h3>
-            <p>Technical walkthrough of serverless agent deployment to 330+ Cloudflare edge locations, achieving P99 latency &lt;300ms with zero cold starts.</p>
-            <a href="/blog/edge-reasoning-cloudflare/">Read more →</a>
+            <div class="blog-card-meta">🎧 32:18 • October 29, 2025</div>
+            <h3>Zero-Cost Crypto Trading Bot with LLM</h3>
+            <p>Building an AI-powered crypto trading bot using Freqtrade and LLM integration on free infrastructure. Complete architecture, zero-cost deployment, and risk management.</p>
+            <audio controls preload="none" src="/assets/podcasts/episode-003-crypto-trading-bot.mp3" style="width: 100%; margin: 12px 0;"></audio>
+            <a href="/podcasts/episodes/episode-003-crypto-trading-bot.html">Full show notes →</a>
+          </article>
+        </div>
+
+        <p style="margin-top: 32px; text-align: center;">
+          <a href="/podcasts/" style="font-weight: 600; padding: 12px 24px; border: 1px solid var(--brand); border-radius: 8px; display: inline-block;">View All Episodes →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="blog" class="section">
+      <div class="container">
+        <h2>Latest from the Blog</h2>
+        <p>Strategic insights, architectural analysis, and editorial commentary on the agentic AI revolution.</p>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <article class="blog-card">
+            <div class="blog-card-meta">October 31, 2025 • Architecture</div>
+            <h3>The Inevitable Architecture</h3>
+            <p>Q4 2025 strategic briefing on the agentic shift, BigSaaS disruption hypothesis, and the convergence of 6G and edge computing. Why platform engineering is the new moat.</p>
+            <a href="/blog/posts/the-inevitable-architecture.html">Read more →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 30, 2025 • Strategic Briefing</div>
+            <h3>The Quantum Leap</h3>
+            <p>Hardware wars (NVIDIA vs Qualcomm vs AMD), the multiagent revolution, and governance frameworks for agentic AI. Strategic commands for VoidCat RDC's path forward.</p>
+            <a href="/blog/posts/the-quantum-leap.html">Read more →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-meta">October 29, 2025 • Editorial</div>
+            <h3>The Age of Agents</h3>
+            <p>Silicon supremacy, digital empires, and the hardware wars shaping agentic AI. Analysis of the strategic landscape and implications for developers building the next era.</p>
+            <a href="/blog/age-of-agents.html">Read more →</a>
           </article>
         </div>
 
