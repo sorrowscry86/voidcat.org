@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server:*)",
+      "Bash(npx:*)",
+      "Bash(timeout 3 cmd:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(pip install:*)",
+      "Bash(mkdir:*)",
+      "Bash(whisper:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

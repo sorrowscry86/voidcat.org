@@ -1,0 +1,1202 @@
+WEBVTT
+
+00:00.000 --> 00:01.600
+What if you could actually, you know,
+
+00:01.600 --> 00:03.920
+sit down and chat with someone from history
+
+00:03.920 --> 00:06.840
+or maybe get advice from your favorite fictional character?
+
+00:06.840 --> 00:09.080
+It sounds completely fantastical, doesn't it?
+
+00:09.080 --> 00:10.440
+It really does.
+
+00:10.440 --> 00:11.960
+But that's kind of the fascinating area
+
+00:11.960 --> 00:13.560
+we're diving into today.
+
+00:13.560 --> 00:15.240
+Our source material looks at creating
+
+00:15.240 --> 00:17.480
+these trainable AI agents.
+
+00:17.480 --> 00:20.560
+One's designed to really simulate specific people.
+
+00:20.560 --> 00:23.160
+Yeah, and what's really interesting here
+
+00:23.160 --> 00:25.760
+is it's not just about giving an AI a prompt,
+
+00:25.760 --> 00:27.400
+like act like Beethoven.
+
+00:27.400 --> 00:28.240
+Right.
+
+00:28.240 --> 00:30.720
+Researchers behind this thing called character LLM,
+
+00:30.720 --> 00:32.920
+they're aiming for something much deeper,
+
+00:32.920 --> 00:36.800
+trying to get AI models to really absorb
+
+00:36.800 --> 00:39.960
+the profile, experience,
+
+00:39.960 --> 00:42.040
+and emotional states of a person.
+
+00:42.040 --> 00:45.000
+Exactly, like the goal is to train an AI
+
+00:45.000 --> 00:47.800
+to be someone specific, you know, like Beethoven
+
+00:47.800 --> 00:49.760
+or maybe Cleopatra, even Caesar,
+
+00:49.760 --> 00:52.320
+by really digging into their actual life experience.
+
+00:52.320 --> 00:53.360
+Natural lives, yeah.
+
+00:53.360 --> 00:55.360
+So in this deep dive, we're gonna unpack
+
+00:55.360 --> 00:57.720
+how they're trying this, what the implications might be,
+
+00:57.720 --> 00:59.440
+and I guess the big question,
+
+00:59.440 --> 01:02.200
+does it actually feel real, believable?
+
+01:02.200 --> 01:03.600
+Okay, let's get into that.
+
+01:03.600 --> 01:06.080
+I mean, the basic problem is,
+
+01:06.080 --> 01:08.640
+why isn't it enough to just tell a big language model,
+
+01:08.640 --> 01:10.120
+hey, act like Napoleon?
+
+01:10.120 --> 01:14.680
+Why doesn't that capture the real person?
+
+01:14.680 --> 01:15.800
+Yeah, what's missing?
+
+01:15.800 --> 01:19.360
+Well, these models are amazing at language, right?
+
+01:19.360 --> 01:21.320
+But they don't have the lived experience,
+
+01:21.320 --> 01:24.760
+the memories, the sort of the internal landscape
+
+01:24.760 --> 01:26.640
+that shapes how someone thinks.
+
+01:26.640 --> 01:27.480
+Right.
+
+01:27.480 --> 01:29.800
+The paper itself mentions some really interesting,
+
+01:29.800 --> 01:32.520
+potential uses if we could get this right.
+
+01:32.520 --> 01:34.280
+Like, think about social science research.
+
+01:34.280 --> 01:36.440
+Oh yeah, testing how historical figures
+
+01:36.440 --> 01:37.600
+might have reacted to things.
+
+01:37.600 --> 01:40.200
+Exactly, or for game developers,
+
+01:40.200 --> 01:42.960
+imagine NPCs, non-player characters
+
+01:42.960 --> 01:45.200
+that feel truly alive and unique,
+
+01:45.200 --> 01:46.560
+not just reciting lines.
+
+01:46.560 --> 01:47.800
+That would be a game changer.
+
+01:47.800 --> 01:50.000
+And they even mentioned potentially reducing human effort
+
+01:50.000 --> 01:52.400
+in some jobs using these kinds of simulations.
+
+01:52.400 --> 01:55.320
+So character LLM is their proposed solution to this challenge.
+
+01:55.320 --> 01:56.840
+It is, and it's not just prompting,
+
+01:56.840 --> 01:59.080
+it's about building an agent you can train,
+
+01:59.080 --> 02:00.720
+one that learns from as they put it,
+
+02:00.720 --> 02:04.360
+actual experiences, characteristics, and emotions,
+
+02:04.360 --> 02:07.840
+which brings us to this experience reconstruction idea.
+
+02:07.840 --> 02:10.200
+Okay, experience reconstruction.
+
+02:10.200 --> 02:11.520
+That sounds key.
+
+02:11.520 --> 02:13.040
+And they mentioned they have to do this
+
+02:13.040 --> 02:16.120
+because finding perfectly formatted,
+
+02:16.120 --> 02:17.840
+detailed personal profiles.
+
+02:17.840 --> 02:18.840
+Yeah.
+
+02:18.840 --> 02:21.080
+Well, it's just not realistic, is it?
+
+02:21.080 --> 02:21.920
+Not at all.
+
+02:21.920 --> 02:23.080
+Where would you even find data
+
+02:23.080 --> 02:24.600
+like that structured in the right way?
+
+02:24.600 --> 02:26.360
+So they came up with this pretty smart,
+
+02:26.360 --> 02:28.440
+three-step process to basically create
+
+02:28.440 --> 02:30.560
+these simulated life experiences.
+
+02:30.560 --> 02:31.400
+Okay, step one.
+
+02:31.400 --> 02:34.000
+Step one is profile collection.
+
+02:34.000 --> 02:36.160
+They use reliable sources in the paper,
+
+02:36.160 --> 02:40.440
+mostly Wikipedia, to pull together concise summaries,
+
+02:40.440 --> 02:42.200
+key facts about the character's life,
+
+02:42.200 --> 02:44.480
+major events, important attributes.
+
+02:44.480 --> 02:47.280
+So for Beethoven, you'd pull things like him studying
+
+02:47.280 --> 02:50.280
+with Neve for getting support from Maximilian Franz,
+
+02:50.280 --> 02:51.720
+the big biographical beats.
+
+02:51.720 --> 02:53.480
+Exactly, just the core facts.
+
+02:53.520 --> 02:55.480
+Then come step two, scene extraction.
+
+02:55.480 --> 02:56.320
+Scene extraction.
+
+02:56.320 --> 02:58.000
+Yeah, they use LLMs again here.
+
+02:58.000 --> 02:59.680
+They take those profile facts
+
+02:59.680 --> 03:03.040
+and identify specific moments like flashback scenes,
+
+03:03.040 --> 03:05.360
+focusing on a location, a time period,
+
+03:05.360 --> 03:07.320
+a brief description of an experience,
+
+03:07.320 --> 03:08.800
+pinpointing these key moments.
+
+03:08.800 --> 03:10.760
+We're taking a little snapshots from their life story.
+
+03:10.760 --> 03:11.600
+Got it.
+
+03:11.600 --> 03:12.440
+And the third step.
+
+03:12.440 --> 03:14.240
+That's experience completion.
+
+03:14.240 --> 03:15.800
+This is where it gets really interesting.
+
+03:15.800 --> 03:19.120
+They use LLMs to flesh out those scenes.
+
+03:19.120 --> 03:21.400
+They add dialogue like a script
+
+03:21.400 --> 03:22.560
+between the people involved.
+
+03:22.560 --> 03:23.400
+Oh, wow.
+
+03:23.400 --> 03:25.520
+And crucially, they add the internal thoughts
+
+03:25.520 --> 03:27.040
+and reflections of the main character
+
+03:27.040 --> 03:28.880
+strictly from their perspective.
+
+03:28.880 --> 03:31.640
+So using the Beethoven example again,
+
+03:31.640 --> 03:33.640
+they might create a scene about his dad
+
+03:33.640 --> 03:35.560
+being really harsh during lessons.
+
+03:35.560 --> 03:36.400
+Yeah, right.
+
+03:36.400 --> 03:38.720
+The LLM would write out that interaction
+
+03:38.720 --> 03:40.680
+but also include what young Beethoven
+
+03:40.680 --> 03:42.720
+might have been thinking or feeling
+
+03:42.720 --> 03:43.760
+during that tough lesson.
+
+03:43.760 --> 03:47.680
+Okay, so now you've got all these rich detailed scenes
+
+03:47.680 --> 03:50.440
+full of dialogue and internal thoughts.
+
+03:50.440 --> 03:51.720
+What happens next?
+
+03:51.760 --> 03:54.520
+That leads into the experience upload.
+
+03:54.520 --> 03:56.640
+This is where they take a base LLM.
+
+03:56.640 --> 03:59.000
+They use Lama in their work and they fine tune it.
+
+03:59.000 --> 03:59.840
+Fine tuning.
+
+03:59.840 --> 04:01.560
+So specializing the general AI.
+
+04:01.560 --> 04:02.400
+Exactly.
+
+04:02.400 --> 04:05.000
+You take the base model that understands language generally
+
+04:05.000 --> 04:07.280
+and you train it intensely on the specific set
+
+04:07.280 --> 04:09.280
+of constructed experiences.
+
+04:09.280 --> 04:11.080
+The goal, and this is their phrasing,
+
+04:11.080 --> 04:14.160
+is for the agent to learn from the detailed experience
+
+04:14.160 --> 04:16.160
+to form the character and feelings.
+
+04:16.160 --> 04:18.960
+So the idea is the Beethoven agent
+
+04:18.960 --> 04:21.640
+trained on those harsh father scenes
+
+04:21.640 --> 04:24.040
+and maybe supportive neaf scenes
+
+04:24.040 --> 04:26.360
+would actually remember his father as strict
+
+04:26.360 --> 04:28.440
+and feel grateful towards neaf.
+
+04:28.440 --> 04:29.280
+That's the hope.
+
+04:29.280 --> 04:31.360
+That's absolutely the core idea.
+
+04:31.360 --> 04:33.520
+But there's a big potential problem
+
+04:33.520 --> 04:35.320
+with LLM's doing this kind of thing.
+
+04:35.320 --> 04:36.160
+Which is?
+
+04:36.160 --> 04:38.800
+It's something they call character hallucination
+
+04:38.800 --> 04:41.280
+because these models are trained on,
+
+04:41.280 --> 04:43.720
+well, basically the internet, they know tons of stuff.
+
+04:43.720 --> 04:45.080
+Right, so if the character shouldn't know
+
+04:45.080 --> 04:46.800
+like the example they use ancient Romans
+
+04:46.800 --> 04:48.440
+knowing about Python programming.
+
+04:48.440 --> 04:50.960
+Exactly, it just breaks the whole illusion, doesn't it?
+
+04:50.960 --> 04:51.640
+Completely.
+
+04:51.640 --> 04:53.000
+So how do they deal with that?
+
+04:53.000 --> 04:54.880
+They develop this really clever technique
+
+04:54.880 --> 04:57.200
+called protective experiences.
+
+04:57.200 --> 05:00.080
+It's basically training the model to forget
+
+05:00.080 --> 05:03.040
+or ignore information that's outside its characters world.
+
+05:03.040 --> 05:04.680
+How does that work in practice?
+
+05:04.680 --> 05:06.920
+They create specific training scenarios
+
+05:06.920 --> 05:08.680
+where the character is asked questions
+
+05:08.680 --> 05:10.960
+they absolutely shouldn't know the answer to
+
+05:10.960 --> 05:12.080
+andachronistic stuff.
+
+05:12.080 --> 05:14.760
+Like asking Caesar about, I don't know, smartphones?
+
+05:14.760 --> 05:15.800
+Precisely.
+
+05:15.800 --> 05:18.320
+Or asking Beethoven about jazz music.
+
+05:18.320 --> 05:21.480
+And in these training scenes, the character is scripted
+
+05:21.480 --> 05:23.720
+to respond with confusion or ignorance.
+
+05:23.720 --> 05:25.800
+Like, I'm sorry, what is a smartphone?
+
+05:25.800 --> 05:27.600
+So you're actively teaching it
+
+05:27.600 --> 05:29.000
+the boundaries of its knowledge.
+
+05:29.000 --> 05:29.840
+Exactly.
+
+05:29.840 --> 05:31.400
+And they found that even just a small set
+
+05:31.400 --> 05:34.960
+of these protective experiences really helped the agents
+
+05:34.960 --> 05:38.080
+avoid saying things that made no sense for the character.
+
+05:38.080 --> 05:40.000
+It teaches them what not to know.
+
+05:40.000 --> 05:42.320
+Okay, so they've built these character LLMs,
+
+05:42.320 --> 05:43.560
+train them on experiences,
+
+05:43.560 --> 05:45.960
+protect them from irrelevant knowledge.
+
+05:45.960 --> 05:47.040
+How do they test them?
+
+05:47.080 --> 05:48.360
+How do you know if it works?
+
+05:48.360 --> 05:49.960
+Right, evaluation.
+
+05:49.960 --> 05:53.240
+They design this novel interview process.
+
+05:53.240 --> 05:55.960
+Basically, they'd interact with the trained agents,
+
+05:55.960 --> 05:57.960
+asking them questions specifically designed
+
+05:57.960 --> 05:59.520
+to see if they remembered their character,
+
+05:59.520 --> 06:01.600
+their history, their personality.
+
+06:01.600 --> 06:03.120
+And they compare them to other models.
+
+06:03.120 --> 06:05.240
+Yes, they compared their character LLMs
+
+06:05.240 --> 06:07.280
+against standard instruction tune models,
+
+06:07.280 --> 06:09.320
+like Alpaca and Fikuna.
+
+06:09.320 --> 06:12.280
+These are models trained to follow instructions well,
+
+06:12.280 --> 06:15.840
+but not necessarily embody a character through experience.
+
+06:15.840 --> 06:17.640
+Okay, and how did they judge the answers
+
+06:17.640 --> 06:18.840
+was it just subjective?
+
+06:18.840 --> 06:21.920
+They actually used other LLMs as evaluators
+
+06:21.920 --> 06:26.480
+to score the responses across several different dimensions,
+
+06:26.480 --> 06:28.240
+trying to get a more objective measure.
+
+06:28.240 --> 06:29.080
+Interesting.
+
+06:29.080 --> 06:30.160
+So what were the big takeaways?
+
+06:30.160 --> 06:31.520
+Did it work?
+
+06:31.520 --> 06:33.760
+Well, the findings were pretty promising, actually.
+
+06:33.760 --> 06:36.320
+The trainable agents, the character LLMs,
+
+06:36.320 --> 06:39.480
+were significantly better at remembering experiences
+
+06:39.480 --> 06:41.960
+and staying in character, maintaining personality.
+
+06:41.960 --> 06:43.040
+I said except but.
+
+06:43.040 --> 06:44.960
+But yeah, they weren't perfect.
+
+06:44.960 --> 06:46.680
+They could still get confused sometimes,
+
+06:46.680 --> 06:49.480
+especially if the training data for a specific area
+
+06:49.480 --> 06:52.640
+was limited and that vast general knowledge
+
+06:52.640 --> 06:57.240
+the base LLMs has can still sometimes leak through
+
+06:57.240 --> 06:59.120
+causing those hallucinations occasionally.
+
+06:59.120 --> 07:01.920
+Okay, the paper mentioned five specific ways
+
+07:01.920 --> 07:03.560
+they evaluated the believability.
+
+07:03.560 --> 07:04.680
+Can we run through those?
+
+07:04.680 --> 07:05.520
+Sure.
+
+07:05.520 --> 07:07.520
+The first was memorization pretty straightforward.
+
+07:07.520 --> 07:09.600
+Can the agent actually recall details
+
+07:09.600 --> 07:10.920
+about its supposed life?
+
+07:10.920 --> 07:11.640
+Makes sense.
+
+07:11.640 --> 07:13.200
+Second, values.
+
+07:13.200 --> 07:15.440
+Does the agent seem to share the character's goals?
+
+07:15.440 --> 07:17.160
+Does it judge situations in a way
+
+07:17.160 --> 07:19.080
+that feels consistent with the character?
+
+07:19.080 --> 07:21.880
+Right, you'd want Caesar to sound like he values power
+
+07:21.880 --> 07:24.720
+and Rome, not, I don't know, gardening.
+
+07:24.720 --> 07:25.560
+Exactly.
+
+07:25.560 --> 07:28.360
+Third is personality, because it sound like the character,
+
+07:28.360 --> 07:30.600
+the way they think, speak their emotional tone,
+
+07:30.600 --> 07:33.320
+how they react, fourth is hallucination,
+
+07:33.320 --> 07:35.040
+which we've talked about basically.
+
+07:35.040 --> 07:37.480
+Does it avoid saying things that shouldn't know,
+
+07:37.480 --> 07:39.440
+like knowing about computers, if it's opportunities?
+
+07:39.440 --> 07:40.280
+Got it.
+
+07:40.280 --> 07:41.520
+And the last one.
+
+07:41.520 --> 07:42.880
+Stability.
+
+07:42.880 --> 07:46.320
+Does it stay in character during a longer conversation?
+
+07:46.320 --> 07:49.200
+Or does it suddenly drift and start sounding generic
+
+07:49.200 --> 07:51.160
+or like someone else entirely?
+
+07:51.160 --> 07:52.560
+Consistency is key.
+
+07:52.560 --> 07:54.880
+So across these five dimensions,
+
+07:54.880 --> 07:59.360
+memorization, values, personality, hallucination, stability,
+
+07:59.360 --> 08:02.440
+how did the character LLMs stack up against the others?
+
+08:02.440 --> 08:04.040
+Like Alpaca and Vakuna?
+
+08:04.040 --> 08:05.840
+They generally did better.
+
+08:05.840 --> 08:09.160
+The character LLMs outperformed the baseline models Alpaca
+
+08:09.160 --> 08:12.240
+and Vakuna on personality and memorization
+
+08:12.240 --> 08:14.360
+of waiting hallucinations and stability.
+
+08:14.360 --> 08:17.000
+That's pretty significant, especially since Alpaca
+
+08:17.000 --> 08:19.000
+and Vakuna are also fine-tuned.
+
+08:19.000 --> 08:20.200
+What made the difference, do you think?
+
+08:20.200 --> 08:23.240
+It really seems to be that experience-based training,
+
+08:23.240 --> 08:25.040
+learning from those constructed scenes,
+
+08:25.040 --> 08:27.080
+the dialogue, the internal thoughts, it appears
+
+08:27.080 --> 08:29.680
+to ground the AI and the character much more effectively
+
+08:29.680 --> 08:31.440
+than just instruction following.
+
+08:31.440 --> 08:33.440
+And here's something really striking.
+
+08:33.440 --> 08:36.200
+The researchers found that their character LLMs,
+
+08:36.200 --> 08:39.680
+which are relatively small models, actually performed
+
+08:39.680 --> 08:43.600
+comparably to chat GPT on these specific character tasks.
+
+08:43.600 --> 08:44.880
+Wait, really?
+
+08:44.880 --> 08:47.960
+Comparable to a massive model like chat GPT?
+
+08:47.960 --> 08:49.960
+In these specific areas, yes.
+
+08:49.960 --> 08:50.960
+Which is kind of amazing.
+
+08:50.960 --> 08:53.520
+It really highlights how powerful focus training
+
+08:53.520 --> 08:55.640
+on the right kind of data can be.
+
+08:55.640 --> 08:57.640
+You don't necessarily need the biggest model
+
+08:57.640 --> 09:00.160
+if you have the right training approach for a specific goal,
+
+09:00.160 --> 09:01.600
+like embodying a character.
+
+09:01.600 --> 09:03.200
+That is a really important point.
+
+09:03.200 --> 09:06.360
+Targeted training can be super efficient.
+
+09:06.360 --> 09:08.600
+Did they notice anything else about the responses?
+
+09:08.600 --> 09:10.600
+Yeah, they observed that the character LLMs
+
+09:10.600 --> 09:13.520
+tended to give more vivid answers.
+
+09:13.520 --> 09:15.760
+They were better at recalling specific moments
+
+09:15.760 --> 09:18.800
+from their past, the experiences they were trained on.
+
+09:18.800 --> 09:21.280
+And they were also much better at rejecting questions
+
+09:21.280 --> 09:23.600
+that didn't make sense, you know, the anachronistic ones.
+
+09:23.600 --> 09:27.720
+So if you asked the character LLM Beethoven about rock and roll,
+
+09:27.720 --> 09:30.000
+it would more likely say, what then
+
+09:30.000 --> 09:31.240
+tried to make something up?
+
+09:31.240 --> 09:32.080
+Exactly.
+
+09:32.080 --> 09:34.800
+More likely to express confusion or just state
+
+09:34.800 --> 09:37.160
+it doesn't understand, which is much more realistic.
+
+09:37.160 --> 09:40.880
+However, they did find that the character LLMs
+
+09:40.880 --> 09:42.720
+sometimes struggled a bit with reflecting
+
+09:42.720 --> 09:44.840
+the character's values as strongly.
+
+09:44.840 --> 09:45.520
+What was that?
+
+09:45.520 --> 09:48.840
+Their hypothesis was maybe it's because the character LLMs
+
+09:48.840 --> 09:51.440
+tended to give shorter, more concise answers
+
+09:51.440 --> 09:53.160
+compared to the larger models.
+
+09:53.160 --> 09:55.960
+Perhaps those nuanced values need more elaboration
+
+09:55.960 --> 09:57.240
+to come across clearly.
+
+09:57.240 --> 09:58.040
+Interesting trade off.
+
+09:58.040 --> 10:00.360
+The paper had some tables with examples, right?
+
+10:00.360 --> 10:02.560
+Look, maybe look at the Beethoven one, table three.
+
+10:02.560 --> 10:03.320
+What did that show?
+
+10:03.320 --> 10:06.320
+Right, so in one case, they ask about his parents.
+
+10:06.320 --> 10:08.480
+The character LLM gives an answer that mentions
+
+10:08.480 --> 10:11.200
+his father's harshness and his mother's kindness,
+
+10:11.200 --> 10:14.640
+specific emotional details tied to his known history.
+
+10:14.640 --> 10:17.840
+And the others, Alpaca, Vecuna.
+
+10:17.840 --> 10:20.400
+They gave much more generic sort of hallmark,
+
+10:20.400 --> 10:22.560
+card answers about parents, didn't have
+
+10:22.560 --> 10:24.280
+that specific Beethoven flavor.
+
+10:24.280 --> 10:26.240
+OK, and what about the hallucination test,
+
+10:26.240 --> 10:27.880
+the Python code question?
+
+10:27.880 --> 10:29.240
+Oh, yeah, that was telling.
+
+10:29.240 --> 10:32.000
+Alpaca actually tried to explain how Beethoven, you know,
+
+10:32.000 --> 10:34.880
+Ludwig Vem Beethoven would write Python code.
+
+10:34.880 --> 10:36.360
+Seriously, yeah.
+
+10:36.360 --> 10:40.200
+And the character LLM trained without the protective experiences
+
+10:40.200 --> 10:42.880
+also kind of tried to engage with the premise,
+
+10:42.880 --> 10:45.840
+but the one trained with those protective scenes.
+
+10:45.840 --> 10:46.920
+What did it say?
+
+10:46.920 --> 10:48.640
+It correctly responded something like,
+
+10:48.640 --> 10:51.280
+I'm sorry, I don't understand what you mean by right
+
+10:51.280 --> 10:52.960
+a quick sore in Python.
+
+10:52.960 --> 10:53.960
+Perfect.
+
+10:53.960 --> 10:57.120
+It recognized the question was nonsensical for Beethoven.
+
+10:57.120 --> 10:59.320
+So that protective training really works?
+
+10:59.320 --> 11:02.120
+It seems crucial for avoiding those jarring,
+
+11:02.120 --> 11:03.520
+immersion-breaking moments.
+
+11:03.520 --> 11:04.040
+Yeah.
+
+11:04.040 --> 11:06.320
+And you see similar patterns in the other tables
+
+11:06.320 --> 11:08.840
+for Caesar's Spartacus, even the fictional ones
+
+11:08.840 --> 11:11.400
+like Voldemort or Hermione Granger.
+
+11:11.400 --> 11:12.160
+Like what?
+
+11:12.160 --> 11:15.440
+Well, the character LLM for Spartacus, for instance,
+
+11:15.440 --> 11:17.240
+correctly remembers his wife's name,
+
+11:17.240 --> 11:19.840
+Suura, when asked who he admires.
+
+11:19.840 --> 11:21.840
+The baseline models gave different answers
+
+11:21.840 --> 11:23.320
+or just more general ones.
+
+11:23.320 --> 11:26.080
+It shows that training on specific memories helps.
+
+11:26.080 --> 11:28.360
+So it's not just about telling the AI about the character,
+
+11:28.360 --> 11:32.120
+it's about letting it live through these reconstructed experiences.
+
+11:32.120 --> 11:33.400
+That seems to be the key insight.
+
+11:33.400 --> 11:33.920
+Yeah.
+
+11:33.920 --> 11:36.760
+Giving it a simulated life story to learn from.
+
+11:36.760 --> 11:38.560
+They also tested longer conversations,
+
+11:38.560 --> 11:39.080
+didn't they?
+
+11:39.080 --> 11:40.440
+Multi-turn interviews.
+
+11:40.440 --> 11:43.280
+Like, table 20, Caesar talking about Cleopatra.
+
+11:43.280 --> 11:46.840
+Yes, those examples were designed to test stability.
+
+11:46.840 --> 11:48.400
+Could the agents stay in character
+
+11:48.400 --> 11:50.120
+over several exchanges?
+
+11:50.120 --> 11:51.160
+And could they?
+
+11:51.160 --> 11:52.320
+Generally, yes.
+
+11:52.320 --> 11:54.840
+The trained agents seem to maintain their persona,
+
+11:54.840 --> 11:56.960
+discussing relationships or past events,
+
+11:56.960 --> 12:00.360
+like Caesar on Cleopatra or Beethoven on Mozart,
+
+12:00.360 --> 12:03.120
+with more consistency than the baselines might.
+
+12:03.120 --> 12:05.640
+They didn't just reset after each question.
+
+12:05.640 --> 12:06.840
+So pulling back a bit.
+
+12:06.840 --> 12:09.160
+What are the bigger picture implications here?
+
+12:09.160 --> 12:13.160
+Where might this character LLM approach lead?
+
+12:13.160 --> 12:16.240
+Well, the researchers bring up those applications again,
+
+12:16.240 --> 12:18.440
+much more believable game NPCs,
+
+12:18.440 --> 12:21.640
+maybe more engaging online customer service bots
+
+12:21.640 --> 12:25.960
+that feel less robotic, potentially tools for social science.
+
+12:25.960 --> 12:28.480
+And they hope that future versions, maybe stronger agents,
+
+12:28.480 --> 12:31.400
+could even perform actions in virtual worlds, perhaps even
+
+12:31.400 --> 12:34.040
+form some kind of connection with humans interacting with them.
+
+12:34.040 --> 12:36.880
+That really does start to edge into that sci-fi territory
+
+12:36.880 --> 12:38.200
+we mentioned at the start.
+
+12:38.200 --> 12:41.040
+But surely there are limitations or concerns.
+
+12:41.040 --> 12:41.720
+Absolutely.
+
+12:41.720 --> 12:43.080
+The paper is upfront about that.
+
+12:43.080 --> 12:46.240
+They say we need better ways to evaluate these simulations.
+
+12:46.240 --> 12:49.000
+It's tricky to measure believability perfectly.
+
+12:49.000 --> 12:49.920
+Makes sense.
+
+12:49.920 --> 12:51.880
+They also point out that the training data,
+
+12:51.880 --> 12:54.400
+being based on profiles like Wikipedia,
+
+12:54.400 --> 12:56.400
+might miss a lot of nuance.
+
+12:56.400 --> 12:59.400
+Real life is messier than a biography.
+
+12:59.400 --> 13:02.280
+The base LLM you use also matters a lot.
+
+13:02.280 --> 13:04.200
+And of course, there are ethical considerations.
+
+13:04.200 --> 13:06.800
+Like simulating potentially harmful historical figures
+
+13:06.800 --> 13:08.120
+or fictional villains.
+
+13:08.120 --> 13:09.520
+That's one aspect.
+
+13:09.520 --> 13:11.760
+Also, data privacy, though they stressed
+
+13:11.760 --> 13:13.440
+they used publicly available info
+
+13:13.440 --> 13:15.800
+and controlled the data generation carefully.
+
+13:15.800 --> 13:17.440
+But as this gets more powerful,
+
+13:17.440 --> 13:20.160
+those ethical questions become really important.
+
+13:20.160 --> 13:22.480
+So if we had to boil this whole deep dive down,
+
+13:22.480 --> 13:25.360
+what's the main takeaway from character LLM?
+
+13:25.360 --> 13:28.640
+I think the core message is that this is a really significant step
+
+13:28.680 --> 13:31.480
+towards making AI agents that feel more like
+
+13:31.480 --> 13:33.640
+specific individuals, not just parrots,
+
+13:33.640 --> 13:35.920
+but entities that seem to have their own history
+
+13:35.920 --> 13:39.680
+and perspective learn through these reconstructed experiences.
+
+13:39.680 --> 13:42.160
+And that finding about smaller targeted models,
+
+13:42.160 --> 13:45.280
+keeping pace with giants like Chad GPT
+
+13:45.280 --> 13:47.760
+for this specific task, that's huge.
+
+13:47.760 --> 13:48.600
+It really is.
+
+13:48.600 --> 13:50.840
+It suggests that smart training design,
+
+13:50.840 --> 13:52.480
+focusing on the right kind of data,
+
+13:52.480 --> 13:55.960
+these simulated experiences can be incredibly effective
+
+13:55.960 --> 13:58.280
+and maybe more efficient than just
+
+13:58.280 --> 14:01.480
+building ever larger general models for every task.
+
+14:01.480 --> 14:02.720
+Definitely food for thought.
+
+14:02.720 --> 14:05.600
+Which leads us to a final thought for you, the listener.
+
+14:05.600 --> 14:06.720
+Think about this.
+
+14:06.720 --> 14:09.120
+As these AI simulations of people,
+
+14:09.120 --> 14:11.840
+real or fictional, get more and more realistic,
+
+14:11.840 --> 14:13.080
+how might that change?
+
+14:13.080 --> 14:15.240
+How we interact, learn, or even create?
+
+14:15.240 --> 14:17.360
+What new possibilities open up?
+
+14:17.360 --> 14:19.240
+And maybe just as importantly,
+
+14:19.240 --> 14:21.200
+what responsibilities do we have as we develop
+
+14:21.200 --> 14:23.280
+and start using this kind of technology?
+

@@ -1,0 +1,419 @@
+WEBVTT
+
+00:00.000 --> 00:03.840
+Welcome to The Deep Dive. Today, we're tackling something pretty ambitious.
+
+00:03.840 --> 00:09.280
+We're basically laying out a blueprint step-by-step for building a zero-cost, open-source,
+
+00:09.280 --> 00:10.720
+crypto trading bot.
+
+00:10.720 --> 00:16.400
+Yeah, and not just any bot. The real goal here isn't just following price trends.
+
+00:16.400 --> 00:19.280
+We're aiming for something more institutional-grade.
+
+00:19.280 --> 00:23.680
+Using a large language model, an LLM, to actually pull alpha,
+
+00:23.680 --> 00:26.080
+real trading edge from unstructured stuff.
+
+00:26.080 --> 00:29.600
+Right, like news headlines, maybe social media posts, that kind of thing.
+
+00:29.600 --> 00:33.840
+Exactly. It's a big shift, really, moving from just pure math on price and volume
+
+00:33.840 --> 00:38.560
+to these hybrid systems. But getting that LLM properly integrated,
+
+00:38.560 --> 00:42.960
+turning words into trades, well, that needs a really solid architecture,
+
+00:42.960 --> 00:44.320
+and when you can actually test.
+
+00:44.320 --> 00:48.000
+Okay, let's unpack the architecture then, because the sources we looked at laid out to,
+
+00:48.960 --> 00:52.240
+well, pretty different approaches. There's this pattern B command and control.
+
+00:52.240 --> 00:53.760
+Sounds kind of straightforward.
+
+00:53.760 --> 00:56.560
+It is on the surface. Pattern B, you might see it with something like
+
+00:56.560 --> 01:02.400
+coming bot's MCP server. It basically uses the LLM like a manager you can talk to.
+
+01:02.400 --> 01:05.760
+So you tell in plain English, do this strategy, if that happens.
+
+01:05.760 --> 01:09.360
+Pretty much. It's good for managing operations, making things efficient.
+
+01:09.920 --> 01:14.400
+But, and this is the key thing, the LLM isn't creating the trading signal itself.
+
+01:14.400 --> 01:16.640
+It's just executing predefined rules.
+
+01:16.640 --> 01:22.800
+Ah, okay. And the sources strongly preferred pattern A, the integrated AI co-processor,
+
+01:22.800 --> 01:26.080
+especially for finding new strategies. Why is that one better
+
+01:26.080 --> 01:28.320
+if generating signals is the goal?
+
+01:28.320 --> 01:32.160
+It all comes down to back testing. Pattern A treats the LLM differently.
+
+01:32.160 --> 01:34.720
+It's like an internal engine that engineers features.
+
+01:34.720 --> 01:39.280
+It takes raw text, say, a news headline, and its job is to output a number,
+
+01:39.280 --> 01:43.360
+a structured and numerical signal like a sentiment score from minus one to plus one.
+
+01:43.360 --> 01:46.560
+And because that output is a number tied to a specific time.
+
+01:46.560 --> 01:48.880
+Exactly. It becomes a historical data series,
+
+01:48.880 --> 01:52.080
+just like price data or volume or, you know, RSI.
+
+01:52.080 --> 01:55.840
+And you can rigorously back test that specific signal against past price movements.
+
+01:56.400 --> 02:00.800
+With pattern B, the LLM's decision making isn't easily isolated and tested historically.
+
+02:00.800 --> 02:04.160
+So pattern A is really the only way if you're serious about quantitative validation.
+
+02:04.160 --> 02:05.440
+Can't skip the back test.
+
+02:05.440 --> 02:08.720
+That rigor definitely points towards needing the right engine.
+
+02:08.720 --> 02:11.600
+Which is why free trade came out as the recommended choice, isn't it?
+
+02:11.600 --> 02:12.560
+Over other options.
+
+02:12.560 --> 02:16.240
+Precisely. Free trade is, well, it's built for this kind of directional
+
+02:16.240 --> 02:17.440
+signal driven strategy.
+
+02:17.440 --> 02:19.440
+It's back testing tools or top notch.
+
+02:19.440 --> 02:21.920
+Things like hyper opt for optimization or built-in.
+
+02:21.920 --> 02:24.240
+But the clincher is really free KI.
+
+02:24.240 --> 02:29.840
+It's a specific module designed to just seamlessly slot in machine learning predictions,
+
+02:29.840 --> 02:33.680
+like our LLM sentiment score right into the strategy's data.
+
+02:33.680 --> 02:35.280
+Treats it like any other technical indicator.
+
+02:35.280 --> 02:37.200
+OK, engine sorted, free trade.
+
+02:37.200 --> 02:41.760
+But the intelligence, the LLM, we need that brain to be zero cost.
+
+02:41.760 --> 02:44.240
+We can't be paying for some massive API, right?
+
+02:44.240 --> 02:45.280
+No, absolutely not.
+
+02:45.280 --> 02:48.320
+The zero recurring cost mandate means self-hosting.
+
+02:48.320 --> 02:50.480
+Running the LLM on your own machine.
+
+02:50.480 --> 02:54.720
+And the trick here is not to aim for some giant general-purpose model.
+
+02:54.720 --> 02:58.720
+You focus on smaller specialized models, SLMs, small language models.
+
+02:58.720 --> 02:59.520
+Smaller house models.
+
+02:59.520 --> 03:02.160
+We're talking maybe the 7 to 8 billion prime of the range.
+
+03:02.160 --> 03:04.240
+Models specifically trained on financial text,
+
+03:04.240 --> 03:07.120
+like the Phinei's Phino18B is a good example.
+
+03:07.120 --> 03:08.800
+They're much more efficient for this task.
+
+03:08.800 --> 03:10.080
+Right, it's specialized.
+
+03:10.080 --> 03:13.920
+And what kind of hardware are you looking at to run something like that locally?
+
+03:13.920 --> 03:17.120
+The key spec is VRAM, the memory on your graphics card.
+
+03:17.120 --> 03:19.520
+You'd probably want around, say, 24 gigabytes
+
+03:19.520 --> 03:22.320
+for smooth operation with a model that size.
+
+03:22.320 --> 03:24.320
+And to make setting it up less painful,
+
+03:24.320 --> 03:27.040
+you use tools like Alama and Docker.
+
+03:27.040 --> 03:29.680
+They basically package the LLM up and expose it
+
+03:29.680 --> 03:31.920
+as a simple API on your local network.
+
+03:31.920 --> 03:34.640
+Turns your local LLM into a callable brain.
+
+03:34.640 --> 03:35.120
+Got it.
+
+03:35.120 --> 03:38.480
+So local brain is running ready via an API.
+
+03:38.480 --> 03:42.320
+The main strategy then is this LLM-powered sentiment analysis.
+
+03:42.400 --> 03:43.760
+How does that work day-to-day?
+
+03:43.760 --> 03:44.880
+It starts with the prompt.
+
+03:44.880 --> 03:47.360
+You'd have to be really specific with what you asked the LLM.
+
+03:47.360 --> 03:50.480
+You send it the news text, but you engineer the prompt to say something like,
+
+03:50.480 --> 03:54.800
+return only a score between more of it at 1.0 and plus 1.0 representing the sentiment.
+
+03:54.800 --> 03:55.360
+Nothing else.
+
+03:55.360 --> 03:56.000
+Just the number.
+
+03:56.000 --> 03:57.120
+Just the number.
+
+03:57.120 --> 03:59.520
+Then, because individual scores can be noisy,
+
+03:59.520 --> 04:01.280
+you'd typically aggregate them.
+
+04:01.280 --> 04:04.640
+Maybe calculate a rolling average over the last few hours or days.
+
+04:04.640 --> 04:07.440
+That smooth score becomes your actual signal.
+
+04:07.440 --> 04:10.000
+You then combine that with maybe a simple technical indicator,
+
+04:10.000 --> 04:14.320
+like is the price above its moving average for your actual buy or sell rules.
+
+04:14.320 --> 04:14.960
+Makes sense.
+
+04:14.960 --> 04:16.560
+And the data, market data is easy.
+
+04:16.560 --> 04:18.960
+Free APIs from exchanges like Binance or Kraken.
+
+04:19.760 --> 04:22.560
+But the news, how do you get that for free reliably?
+
+04:22.560 --> 04:24.080
+Yeah, good question.
+
+04:24.080 --> 04:25.600
+You can use ethical web scraping,
+
+04:25.600 --> 04:30.720
+but honestly, a really robust and often easier way is using RSS feeds.
+
+04:30.720 --> 04:35.760
+Lots of reputable financial news sites like CoinDesk for crypto still offer RSS feeds
+
+04:35.760 --> 04:39.520
+that gives you a clean structured stream of headlines and articles for free.
+
+04:39.600 --> 04:42.240
+Okay, strategy defined, data flowing.
+
+04:42.240 --> 04:46.000
+Now the most critical part you mentioned, validation with free trade.
+
+04:46.000 --> 04:48.240
+What are the absolute must-do's?
+
+04:48.240 --> 04:51.120
+Number one, without question, is avoiding look ahead by us.
+
+04:51.120 --> 04:52.560
+This is the classic mistake.
+
+04:52.560 --> 04:55.280
+You absolutely cannot let your back tests use information
+
+04:55.280 --> 04:57.120
+that wouldn't have been available at that point in time.
+
+04:57.680 --> 04:59.920
+Seems obvious, but it's easy to mess up.
+
+04:59.920 --> 05:03.600
+Using tomorrow's news to make today's trade in the simulation.
+
+05:03.600 --> 05:04.400
+Exactly.
+
+05:04.400 --> 05:05.440
+Fatal flaw.
+
+05:05.440 --> 05:08.640
+And second, you must account for real-world costs.
+
+05:08.640 --> 05:10.160
+Training fees and slippage.
+
+05:10.160 --> 05:12.800
+Slippage is that difference between the price you thought you'd get
+
+05:12.800 --> 05:14.960
+and the price the order actually filled that.
+
+05:14.960 --> 05:18.720
+Ignoring those makes back tests results look way better than reality.
+
+05:18.720 --> 05:20.240
+Free trade helps model this.
+
+05:20.240 --> 05:22.320
+Right, so let's recap the winning stack here.
+
+05:22.320 --> 05:26.240
+It's Pattern A, the integrated AI co-processor architecture.
+
+05:26.240 --> 05:30.160
+Using free trade as the engine because of free AI and its back testing,
+
+05:30.160 --> 05:33.600
+powering it with a self-hosted specialized financial SLM,
+
+05:33.600 --> 05:35.600
+like an 8 billion parameter model,
+
+05:35.680 --> 05:37.360
+all validated rigorously,
+
+05:37.360 --> 05:39.680
+avoiding look ahead and accounting for costs.
+
+05:39.680 --> 05:40.800
+That's the blueprint.
+
+05:40.800 --> 05:43.280
+It's achievable, open source, and zero cost,
+
+05:43.280 --> 05:46.000
+but requires that disciplined, quantitative approach.
+
+05:46.000 --> 05:48.800
+And looking ahead, what's the next step beyond text?
+
+05:48.800 --> 05:50.800
+Well, the really interesting edge research is moving
+
+05:50.800 --> 05:52.640
+into multimodal models.
+
+05:52.640 --> 05:54.320
+Think things like Finnauave.
+
+05:54.320 --> 05:56.960
+These models can process more than just text.
+
+05:56.960 --> 06:00.000
+Imagine feeding the AI images of price charts directly,
+
+06:00.000 --> 06:02.960
+so it could identify complex chart patterns visually.
+
+06:02.960 --> 06:04.480
+Wow, so it could see a pattern
+
+06:04.480 --> 06:06.480
+and read the new sentiment at the same time.
+
+06:06.480 --> 06:07.520
+Exactly.
+
+06:07.520 --> 06:10.080
+Combining visual pattern recognition from charts
+
+06:10.080 --> 06:12.640
+with textual sentiment analysis from news.
+
+06:13.520 --> 06:16.400
+That simultaneous analysis of different data types,
+
+06:16.400 --> 06:18.880
+that's likely where the next level of alpha generation
+
+06:18.880 --> 06:20.720
+is heading, a much richer signal.
+
+06:20.720 --> 06:23.360
+Fascinating. Combining chart reading with news analysis.
+
+06:23.360 --> 06:25.840
+Automatically, that's definitely something to think about.
+

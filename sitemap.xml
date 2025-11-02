@@ -22,6 +22,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://voidcat.org/company/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-11-01</lastmod>
+  </url>
+  <url>
     <loc>https://voidcat.org/investors/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

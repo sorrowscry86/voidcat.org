@@ -105,13 +105,13 @@
             return;
           }
           const ep = data.episodes[0];
-          const epUrl = ep.audio ? ep.audio.replace('/assets/podcasts/', '').replace('.mp3', '') : '';
+          const epUrl = ep.src ? ep.src.replace('/assets/podcasts/', '').replace('.mp3', '') : '';
           el.innerHTML = `
             <div class="promo-episode">
               <div class="promo-ep-meta">🎧 Latest Podcast Episode</div>
               <h3 class="promo-ep-title">${ep.title ? ep.title : 'Untitled Episode'}</h3>
               <p class="promo-ep-desc">${ep.description ? ep.description : ''}</p>
-              ${ep.audio ? `<audio controls preload="metadata" src="${ep.audio}" style="width: 100%; max-width: 600px; margin: 16px 0;" aria-label="Play latest episode"></audio>` : ''}
+              ${ep.src ? `<audio controls preload="metadata" src="${ep.src}" style="width: 100%; max-width: 600px; margin: 16px 0;" aria-label="Play latest episode"></audio>` : ''}
               <a class="cta promo-ep-cta" href="/podcasts/episodes/${epUrl}.html">Full show notes →</a>
             </div>
           `;
