@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap');
+
 :root {
   /* VoidCat RDC core surfaces and text */
   --vc-bg-obsidian: #0B0D13;
@@ -30,7 +32,6 @@
   --border: rgba(148, 163, 184, 0.18);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap');
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--vc-font-body); scroll-behavior: smooth; }
